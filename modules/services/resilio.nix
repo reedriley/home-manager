@@ -30,18 +30,18 @@ let
     download_limit = cfg.downloadLimit;
     upload_limit = cfg.uploadLimit;
     lan_encrypt_data = cfg.encryptLAN;
-  } // optionalAttrs cfg.enableWebUI {
+  } // optionalAttrs (cfg.directoryRoot != "") { directory_root = cfg.directoryRoot; }
+    // optionalAttrs cfg.enableWebUI {
     webui = { listen = "${cfg.httpListenAddr}:${toString cfg.httpListenPort}"; } //
       (optionalAttrs (cfg.httpLogin != "") { login = cfg.httpLogin; }) //
       (optionalAttrs (cfg.httpPass != "") { password = cfg.httpPass; }) //
-      (optionalAttrs (cfg.apiKey != "") { api_key = cfg.apiKey; }) //
-      (optionalAttrs (cfg.directoryRoot != "") { directory_root = cfg.directoryRoot; });
+      (optionalAttrs (cfg.apiKey != "") { api_key = cfg.apiKey; });
   } // optionalAttrs (sharedFoldersRecord != []) {
     shared_folders = sharedFoldersRecord;
   }));
-in {
-  meta.maintainers = [ maintainers.offline ];
 
+in
+{
   options = {
     services.resilio = {
       enable = mkOption {
@@ -58,6 +58,7 @@ in {
         type = types.str;
         example = "Voltron";
         default = config.home.username;
+        defaultText = literalExpression "config.home.username";
         description = ''
           Name of the Resilio Sync device.
         '';
@@ -109,8 +110,8 @@ in {
 
       httpListenAddr = mkOption {
         type = types.str;
-        default = "0.0.0.0";
-        example = "1.2.3.4";
+        default = "[::1]";
+        example = "0.0.0.0";
         description = ''
           HTTP address to bind to.
         '';
@@ -155,12 +156,13 @@ in {
           Enable Web UI for administration. Bound to the specified
           <literal>httpListenAddress</literal> and
           <literal>httpListenPort</literal>.
-        '';
+          '';
       };
 
       storagePath = mkOption {
         type = types.path;
         default = config.home.homeDirectory + "/.local/share/resilio";
+        defaultText = literalExpression "config.home.homeDirectory + \"/.local/share/resilio\"";
         description = ''
           Where BitTorrent Sync will store it's database files (containing
           things like username info and licenses). Generally, you should not
@@ -177,12 +179,13 @@ in {
       directoryRoot = mkOption {
         type = types.str;
         default = "";
-        example = "/storage";
+        example = "/media";
         description = "Default directory to add folders in the web UI.";
       };
 
       sharedFolders = mkOption {
         default = [];
+        type = types.listOf (types.attrsOf types.anything);
         example =
           [ { secret         = "AHMYFPCQAHBM7LQPFXQ7WV6Y42IGUXJ5Y";
               directory      = "/home/user/sync_test";
@@ -203,17 +206,19 @@ in {
           --generate-secret</literal>. Note that this secret will be
           put inside the Nix store, so it is realistically not very
           secret.
+
           If you would like to be able to modify the contents of this
           directories, it is recommended that you make your user a
-          member of the <literal>resilio</literal> group.
+          member of the <literal>rslsync</literal> group.
+
           Directories in this list should be in the
-          <literal>resilio</literal> group, and that group must have
+          <literal>rslsync</literal> group, and that group must have
           write access to the directory. It is also recommended that
           <literal>chmod g+s</literal> is applied to the directory
           so that any sub directories created will also belong to
-          the <literal>resilio</literal> group. Also,
-          <literal>setfacl -d -m group:resilio:rwx</literal> and
-          <literal>setfacl -m group:resilio:rwx</literal> should also
+          the <literal>rslsync</literal> group. Also,
+          <literal>setfacl -d -m group:rslsync:rwx</literal> and
+          <literal>setfacl -m group:rslsync:rwx</literal> should also
           be applied so that the sub directories are writable by
           the group.
         '';
@@ -234,7 +239,7 @@ in {
         }
       ];
 
-    systemd.user.services.resilio = {
+    systemd.user.services.resilio = with pkgs; {
       Unit = {
         Description = "Resilio Sync Service";
         After = [ "network.target" ];
