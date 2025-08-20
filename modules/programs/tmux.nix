@@ -98,6 +98,7 @@ let
         set -g prefix ${prefix}
         bind -N "Send the prefix key through to the application" \
           ${prefix} send-prefix
+        bind C-${prefix} last-window
       ''
     }
 
