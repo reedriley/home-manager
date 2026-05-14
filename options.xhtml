@@ -3798,7 +3798,9 @@ null or absolute path</p>
  </span>
 </dt>
 <dd>
-<p>Whether to use STARTTLS.</p>
+<p>Whether to use STARTTLS. This is discouraged and should be avoided if
+possible. See <a class="link" href="https://datatracker.ietf.org/doc/html/rfc8314"  target="_top">https://datatracker.ietf.org/doc/html/rfc8314</a> for
+more.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -4430,7 +4432,9 @@ null or absolute path</p>
  </span>
 </dt>
 <dd>
-<p>Whether to use STARTTLS.</p>
+<p>Whether to use STARTTLS. This is discouraged and should be avoided if
+possible. See <a class="link" href="https://datatracker.ietf.org/doc/html/rfc8314"  target="_top">https://datatracker.ietf.org/doc/html/rfc8314</a> for
+more.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -7391,7 +7395,9 @@ null or absolute path</p>
  </span>
 </dt>
 <dd>
-<p>Whether to use STARTTLS.</p>
+<p>Whether to use STARTTLS. This is discouraged and should be avoided if
+possible. See <a class="link" href="https://datatracker.ietf.org/doc/html/rfc8314"  target="_top">https://datatracker.ietf.org/doc/html/rfc8314</a> for
+more.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -11681,9 +11687,9 @@ absolute path <span class="emphasis"><em>(read only)</em></span></p>
  </span>
 </dt>
 <dd>
-<p>Home-Manager <a class="link" href="https://nixos.org/manual/nixos/unstable/#modular-services"  target="_top">modular services</a>.</p><p>Each entry is an abstract service that may declare a <code class="option">process.argv</code>
-and home-manager-style <code class="option">systemd.user.{services,sockets}</code> units
-(INI section shape). Units are emitted under home-manager’s
+<p>Home Manager <a class="link" href="https://nixos.org/manual/nixos/unstable/#modular-services"  target="_top">modular services</a>.</p><p>Each entry is an abstract service that may declare a <code class="option">process.argv</code>
+and Home Manager-style <code class="option">systemd.user.{services,sockets}</code> units
+(INI section shape). Units are emitted under Home Manager’s
 <code class="option">systemd.user.services</code> (and friends) with the service name
 as a prefix. Mirrors <code class="option">system.services</code> in NixOS.</p>
 
@@ -62966,6 +62972,36 @@ JSON value</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.microsoft-edge.nativeMessagingHosts"></a><a class="term" href="options.xhtml#opt-programs.microsoft-edge.nativeMessagingHosts"><code class="option">programs.microsoft-edge.nativeMessagingHosts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of Microsoft Edge native messaging hosts to install.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  pkgs.keepassxc
+]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix" target="_top">
+&lt;home-manager/modules/programs/chromium.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.mise.enable"></a><a class="term" href="options.xhtml#opt-programs.mise.enable"><code class="option">programs.mise.enable</code>
   </a>
  </span>
@@ -80556,7 +80592,7 @@ package</p>
 <p>Path where to put generated configuration file.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+non-empty string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;$XDG_CONFIG_HOME/rofi/config.rasi&quot;
 </code></pre>
@@ -85939,9 +85975,9 @@ ssh command-line, even if <span class="command"><strong>ssh-agent</strong></span
 offers more identities.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
+null or boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -100159,21 +100195,119 @@ TOML value</p>
 </dt>
 <dd>
 <p>Lua plugins.
-Values should be a package or path containing an <code class="literal">init.lua</code> file.
-Will be linked to <code class="filename">$XDG_CONFIG_HOME/yazi/plugins/&lt;name&gt;.yazi</code>.</p><p>See <a class="link" href="https://yazi-rs.github.io/docs/plugins/overview"  target="_top">https://yazi-rs.github.io/docs/plugins/overview</a>
+Values can be a package or path (linked as-is), or an attribute set
+with <code class="option">package</code>, <code class="option">setup</code>, and <code class="option">settings</code>.</p><p>Plugins with <code class="option">setup</code> set to <code class="varname">true</code> generate a
+<span class="command"><strong>require(&quot;{name}&quot;):setup({...})</strong></span> call in
+<code class="filename">$XDG_CONFIG_HOME/yazi/init.lua</code>, written before any
+<code class="option">initLua</code> content.</p><p>See <a class="link" href="https://yazi-rs.github.io/docs/plugins/overview"  target="_top">https://yazi-rs.github.io/docs/plugins/overview</a>
 for documentation.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of (absolute path or package)</p>
+attribute set of ((submodule) or (absolute path or package) convertible to it)</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  foo = ./foo;
-  bar = pkgs.bar;
+  # package only, no setup call
+  foo = pkgs.foo;
+
+  # empty setup call: require(&quot;bar&quot;):setup()
+  bar = {
+    package = pkgs.bar;
+    setup = true;
+  };
+
+  # setup call with settings
+  baz = {
+    package = pkgs.baz;
+    setup = true;
+    settings = {
+      part_separator = { open = &quot;&quot;; close = &quot;&quot;; };
+      tab_width = 20;
+    };
+  };
 }
 
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.yazi.plugins._name_.package"></a><a class="term" href="options.xhtml#opt-programs.yazi.plugins._name_.package"><code class="option">programs.yazi.plugins.&lt;name&gt;.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Package or path for the plugin.
+Will be linked to
+<code class="filename">$XDG_CONFIG_HOME/yazi/plugins/&lt;name&gt;.yazi</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+absolute path or package</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.yazi.plugins._name_.settings"></a><a class="term" href="options.xhtml#opt-programs.yazi.plugins._name_.settings"><code class="option">programs.yazi.plugins.&lt;name&gt;.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set passed to the plugin’s
+<span class="command"><strong>setup()</strong></span> as a Lua table (via
+<span class="command"><strong>lib.generators.toLua</strong></span>). Values created with
+<span class="command"><strong>lib.generators.mkLuaInline</strong></span> are rendered as raw Lua expressions.
+Only used when <code class="option">setup</code> is <code class="varname">true</code>.
+When empty, <span class="command"><strong>setup()</strong></span> is called with no
+arguments.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/yazi.nix" target="_top">
+&lt;home-manager/modules/programs/yazi.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.yazi.plugins._name_.setup"></a><a class="term" href="options.xhtml#opt-programs.yazi.plugins._name_.setup"><code class="option">programs.yazi.plugins.&lt;name&gt;.setup</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>When <code class="varname">true</code>, generates a
+<span class="command"><strong>require(&quot;{name}&quot;):setup({...})</strong></span> call in
+<code class="filename">$XDG_CONFIG_HOME/yazi/init.lua</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -101074,6 +101208,31 @@ boolean</p>
 null or package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.zed-editor
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zed-editor.nix" target="_top">
+&lt;home-manager/modules/programs/zed-editor.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.zed-editor.defaultEditor"></a><a class="term" href="options.xhtml#opt-programs.zed-editor.defaultEditor"><code class="option">programs.zed-editor.defaultEditor</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to set <span class="command"><strong>zeditor -w</strong></span> as the default editor using the
+<code class="envar">EDITOR</code> and <code class="envar">VISUAL</code> environment variables.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -117329,7 +117488,7 @@ boolean</p>
 <p>The mako package to use.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-package</p>
+null or package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.mako
 </code></pre>
@@ -129252,6 +129411,36 @@ package</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.ssh-tpm-agent.extraArgs"></a><a class="term" href="options.xhtml#opt-services.ssh-tpm-agent.extraArgs"><code class="option">services.ssh-tpm-agent.extraArgs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra arguments to be passed to the ssh-tpm-agent executable.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;--no-cache&quot;
+  &quot;-d&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/ssh-tpm-agent.nix" target="_top">
+&lt;home-manager/modules/services/ssh-tpm-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.ssh-tpm-agent.keyDir"></a><a class="term" href="options.xhtml#opt-services.ssh-tpm-agent.keyDir"><code class="option">services.ssh-tpm-agent.keyDir</code>
   </a>
  </span>
@@ -131506,6 +131695,33 @@ boolean</p>
 package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.tailscale
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/tailscale-systray.nix" target="_top">
+&lt;home-manager/modules/services/tailscale-systray.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.tailscale-systray.theme"></a><a class="term" href="options.xhtml#opt-services.tailscale-systray.theme"><code class="option">services.tailscale-systray.theme</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Color theme to use for the Tailscale icon.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or one of “dark”, “dark:nobg”, “light”, “light:nobg”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;dark:nobg&quot;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -140312,12 +140528,38 @@ null or package</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-wayland.windowManager.hyprland.configType"></a><a class="term" href="options.xhtml#opt-wayland.windowManager.hyprland.configType"><code class="option">wayland.windowManager.hyprland.configType</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The type of Hyprland configuration to generate.</p><p><code class="literal">hyprlang</code> writes <code class="filename">$XDG_CONFIG_HOME/hypr/hyprland.conf</code>.
+<code class="literal">lua</code> writes <code class="filename">$XDG_CONFIG_HOME/hypr/hyprland.lua</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+one of “hyprlang”, “lua”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then &quot;lua&quot; else &quot;hyprlang&quot;
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/hyprland.nix" target="_top">
+&lt;home-manager/modules/services/window-managers/hyprland.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-wayland.windowManager.hyprland.extraConfig"></a><a class="term" href="options.xhtml#opt-wayland.windowManager.hyprland.extraConfig"><code class="option">wayland.windowManager.hyprland.extraConfig</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Extra configuration lines to add to <code class="literal">~/.config/hypr/hyprland.conf</code>.</p>
+<p>Extra configuration content appended to the generated Hyprland file.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 strings concatenated with “\n”</p>
@@ -140326,16 +140568,14 @@ strings concatenated with “\n”</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
-  # window resize
-  bind = $mod, S, submap, resize
-  
-  submap = resize
-  binde = , right, resizeactive, 10 0
-  binde = , left, resizeactive, -10 0
-  binde = , up, resizeactive, 0 -10
-  binde = , down, resizeactive, 0 10
-  bind = , escape, submap, reset
-  submap = reset
+  hl.on(&quot;window.open&quot;, function()
+    hl.timer(function()
+      hl.dispatch(hl.dsp.exec_cmd(&quot;notify-send &#x27;Window opened&#x27;&quot;))
+    end, {
+      timeout = 100,
+      type = &quot;oneshot&quot;,
+    })
+  end)
 &#x27;&#x27;
 </code></pre>
 
@@ -140412,6 +140652,7 @@ list of string</p>
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[
   &quot;$&quot;
   &quot;bezier&quot;
+  &quot;curve&quot;
   &quot;name&quot;
   &quot;output&quot;
 ]
@@ -140491,7 +140732,11 @@ null or package</p>
 <p>Hyprland configuration written in Nix. Entries with the same key
 should be written as lists. Variables’ and colors’ names should be
 quoted. See <a class="link" href="https://wiki.hypr.land"  target="_top">https://wiki.hypr.land</a> for more examples.</p><div class="note"><h3 class="title">Note</h3><p>Use the <a class="xref" href="options.xhtml#opt-wayland.windowManager.hyprland.plugins"  ><code class="option">wayland.windowManager.hyprland.plugins</code></a> option to
-declare plugins.</p></div>
+declare plugins.</p></div><p>When <code class="option">wayland.windowManager.hyprland.configType</code> is <code class="literal">&quot;lua&quot;</code>,
+each attribute maps to an <code class="literal">hl.&lt;name&gt;(...)</code> call. List values generate
+one call per element.</p><p>Attribute values with an <code class="literal">_args</code> list generate multi-argument calls.
+Values created with <code class="literal">lib.generators.mkLuaInline</code> are rendered as raw
+Lua expressions.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 Hyprland configuration value</p>
@@ -140500,19 +140745,58 @@ Hyprland configuration value</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  decoration = {
-    shadow_offset = &quot;0 5&quot;;
-    &quot;col.shadow&quot; = &quot;rgba(00000099)&quot;;
+  config = {
+    general = {
+      gaps_in = 5;
+      gaps_out = 20;
+      border_size = 2;
+    };
+
+    decoration = {
+      rounding = 10;
+    };
   };
 
-  &quot;$mod&quot; = &quot;SUPER&quot;;
-
-  bindm = [
-    # mouse movements
-    &quot;$mod, mouse:272, movewindow&quot;
-    &quot;$mod, mouse:273, resizewindow&quot;
-    &quot;$mod ALT, mouse:272, resizewindow&quot;
+  bind = [
+    {
+      _args = [
+        &quot;SUPER + Q&quot;
+        (lib.generators.mkLuaInline &quot;hl.dsp.window.close()&quot;)
+        { locked = true; }
+      ];
+    }
+    {
+      _args = [
+        &quot;SUPER + RETURN&quot;
+        (lib.generators.mkLuaInline &quot;hl.dsp.exec_cmd(\&quot;kitty\&quot;)&quot;)
+      ];
+    }
+    {
+      _args = [
+        &quot;ALT + R&quot;
+        (lib.generators.mkLuaInline &quot;hl.dsp.submap(\&quot;resize\&quot;)&quot;)
+      ];
+    }
   ];
+
+  define_submap = {
+    _args = [
+      &quot;resize&quot;
+      (lib.generators.mkLuaInline &quot;function()\n  hl.bind(\&quot;right\&quot;, hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })\n  hl.bind(\&quot;left\&quot;, hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })\n  hl.bind(\&quot;escape\&quot;, hl.dsp.submap(\&quot;reset\&quot;))\nend&quot;)
+    ];
+  };
+
+  window_rule = {
+    match.class = &quot;kitty&quot;;
+    border_size = 2;
+  };
+
+  on = {
+    _args = [
+      &quot;hyprland.start&quot;
+      (lib.generators.mkLuaInline &quot;function()\n  hl.exec_cmd(\&quot;waybar\&quot;)\nend&quot;)
+    ];
+  };
 }
 
 </code></pre>
@@ -140561,7 +140845,7 @@ boolean</p>
  </span>
 </dt>
 <dd>
-<p>Attribute set of Hyprland submaps.</p><p>See <a class="link" href="https://wiki.hypr.land/Configuring/Binds#submaps"  target="_top">https://wiki.hypr.land/Configuring/Binds#submaps</a> to learn about submaps</p>
+<p>Attribute set of Hyprland submaps.</p><p>See <a class="link" href="https://wiki.hypr.land/Configuring/Basics/Binds/#submaps"  target="_top">https://wiki.hypr.land/Configuring/Basics/Binds/#submaps</a> to learn about submaps.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
@@ -140636,7 +140920,13 @@ string</p>
  </span>
 </dt>
 <dd>
-<p>Hyprland binds to be put in the submap</p>
+<p>Hyprland binds to be put in the submap.</p><p>String entries render only when
+<code class="option">wayland.windowManager.hyprland.configType</code> is
+<code class="literal">&quot;hyprlang&quot;</code>.</p><p>Attribute set entries render only when
+<code class="option">wayland.windowManager.hyprland.configType</code> is <code class="literal">&quot;lua&quot;</code>.
+Attribute values with an <code class="literal">_args</code> list generate multi-argument
+calls. Values created with <code class="literal">lib.generators.mkLuaInline</code> are
+rendered as raw Lua expressions.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 Hyprland binds</p>
@@ -140654,6 +140944,12 @@ Hyprland binds</p>
 
   bind = [
     &quot;, escape, submap, reset&quot;
+    {
+      _args = [
+        &quot;escape&quot;
+        (lib.generators.mkLuaInline &quot;hl.dsp.submap(\&quot;reset\&quot;)&quot;)
+      ];
+    }
   ];
 }
 
