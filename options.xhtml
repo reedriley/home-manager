@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
  <title>Appendix A. Home Manager Configuration Options</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="highlightjs/highlight.pack.js" type="text/javascript"></script><script src="highlightjs/loader.js" type="text/javascript"></script><script src="anchor-links.js" type="text/javascript"></script>
@@ -15106,8 +15107,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -15134,8 +15135,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -20690,6 +20691,553 @@ absolute path or JSON value</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity.nix" target="_top">
 &lt;home-manager/modules/programs/antigravity.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.enable"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.enable"><code class="option">programs.antigravity-cli.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Antigravity CLI.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.enableMcpIntegration"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.enableMcpIntegration"><code class="option">programs.antigravity-cli.enableMcpIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to integrate the MCP servers config from
+<code class="option">programs.mcp.servers</code> into
+<code class="option">programs.antigravity-cli.mcpServers</code>.</p><p>Note: Any servers already present in
+<code class="option">programs.antigravity-cli.mcpServers</code>
+is not overridden by servers present under the same
+name in <code class="option">programs.mcp.servers</code></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.package"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.package"><code class="option">programs.antigravity-cli.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The antigravity-cli package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.antigravity-cli
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.commands"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.commands"><code class="option">programs.antigravity-cli.commands</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An attribute set of Gemini CLI custom commands to migrate to
+Antigravity CLI global skills.</p><p>The name of the attribute set will be the name of each generated
+skill directory.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (open submodule of string)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">changelog = {
+  prompt =
+    &#x27;&#x27;
+    Your task is to parse the `&lt;version&gt;`, `&lt;change_type&gt;`, and `&lt;message&gt;` from their input and use the `write_file` tool to correctly update the `CHANGELOG.md` file.
+    &#x27;&#x27;;
+  description = &quot;Adds a new entry to the project&#x27;s CHANGELOG.md file.&quot;;
+};
+&quot;git/fix&quot; = { # Becomes /git:fix
+  prompt = &quot;Please analyze the staged git changes and provide a code fix for the issue described here: {{args}}.&quot;;
+  description = &quot;Generates a fix for a given GitHub issue.&quot;;
+};
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.commands._name_.description"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.commands._name_.description"><code class="option">programs.antigravity-cli.commands.&lt;name&gt;.description</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>A brief, one-line description of what the command does.
+This text will be displayed next to your command in the /help menu.
+If you omit this field, a generic description will be generated from the filename.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.commands._name_.prompt"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.commands._name_.prompt"><code class="option">programs.antigravity-cli.commands.&lt;name&gt;.prompt</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The prompt that will be sent to the Gemini model when the command is executed.
+This can be a single-line or multi-line string.
+The special placeholder {{args}} will be replaced with the text the user typed after the command name.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.context"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.context"><code class="option">programs.antigravity-cli.context</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Global context(s) for Antigravity CLI.</p><p>The attribute name becomes the filename, with a <code class="filename">.md</code>
+extension added automatically. Each value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content</p></li></ul></div><p>The configured files are written to <code class="filename">~/.gemini/</code>.</p><p>Note: You can customize which context file names Antigravity CLI looks for by setting
+<code class="literal">settings.context.fileName</code>. For example:</p><pre><code class="programlisting nix">settings = {
+  context.fileName = [&quot;AGENTS.md&quot;, &quot;CONTEXT.md&quot;, &quot;GEMINI.md&quot;];
+};
+</code></pre>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (strings concatenated with “\n” or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  GEMINI = &#x27;&#x27;
+    # Global Context
+
+    You are a helpful AI assistant for software development.
+
+    ## Coding Standards
+
+    - Follow consistent code style
+    - Write clear comments
+    - Test your changes
+  &#x27;&#x27;;
+
+  AGENTS = ./path/to/agents.md;
+
+  CONTEXT = &#x27;&#x27;
+    Additional context instructions here.
+  &#x27;&#x27;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.defaultModel"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.defaultModel"><code class="option">programs.antigravity-cli.defaultModel</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The default model to use for the CLI.
+Will be set as $GEMINI_MODEL when configured.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;gemini-2.5-flash&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.mcpServers"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.mcpServers"><code class="option">programs.antigravity-cli.mcpServers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>MCP server configuration written to
+<code class="filename">~/.gemini/config/mcp_config.json</code>.</p><p>Remote servers use <code class="literal">serverUrl</code>; <code class="literal">url</code> and <code class="literal">httpUrl</code> are accepted
+for migration and converted automatically.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  filesystem = {
+    args = [
+      &quot;-y&quot;
+      &quot;@modelcontextprotocol/server-filesystem&quot;
+      &quot;/tmp&quot;
+    ];
+    command = &quot;npx&quot;;
+  };
+  github = {
+    serverUrl = &quot;https://api.githubcopilot.com/mcp/&quot;;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.permissions"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.permissions"><code class="option">programs.antigravity-cli.permissions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Antigravity CLI fine-grained permissions written to
+<code class="option">programs.antigravity-cli.settings.permissions</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  allow = [ &quot;command(git)&quot; ];
+  deny = [ &quot;command(rm -rf)&quot; ];
+  ask = [ &quot;command(*)&quot; ];
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.permissions.allow"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.permissions.allow"><code class="option">programs.antigravity-cli.permissions.allow</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Permissions to allow without prompting.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.permissions.ask"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.permissions.ask"><code class="option">programs.antigravity-cli.permissions.ask</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Permissions to ask before using.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.permissions.deny"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.permissions.deny"><code class="option">programs.antigravity-cli.permissions.deny</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Permissions to deny without prompting.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.policies"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.policies"><code class="option">programs.antigravity-cli.policies</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An attribute set of Gemini CLI policy definitions to create in
+<code class="filename">~/.gemini/policies/</code> when
+<code class="option">programs.antigravity-cli.package</code> is a <code class="literal">gemini-cli</code>
+package.</p><p>Antigravity CLI configures permissions in
+<code class="option">programs.antigravity-cli.settings.permissions</code> or
+<code class="option">programs.antigravity-cli.permissions</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (absolute path or TOML value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;my-rules&quot; = {
+    rule = [
+      {
+        toolName = &quot;run_shell_command&quot;;
+        commandPrefix = &quot;git &quot;;
+        decision = &quot;ask_user&quot;;
+        priority = 100;
+      }
+    ];
+  };
+  &quot;other-rules&quot; = ./path/to/rules.toml;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.settings"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.settings"><code class="option">programs.antigravity-cli.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">~/.gemini/antigravity-cli/settings.json</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  altScreenMode = &quot;always&quot;;
+  artifactReviewPolicy = &quot;agent-decides&quot;;
+  colorScheme = &quot;tokyo night&quot;;
+  toolPermission = &quot;proceed-in-sandbox&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.skills"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.skills"><code class="option">programs.antigravity-cli.skills</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom skills for Antigravity CLI.</p><p>This option can be either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the
+skill directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">~/.gemini/config/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">~/.gemini/config/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (symlinks <code class="literal">~/.gemini/config/skills/&lt;name&gt;/</code> to that directory)</p></li></ul></div><p>If a path is used, it is expected to contain one folder per
+skill name, each containing a <code class="filename">SKILL.md</code>. The directory is
+symlinked to <code class="filename">~/.gemini/config/skills/</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+(attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  xlsx = ./skills/xlsx/SKILL.md;
+  data-analysis = ./skills/data-analysis;
+  pdf-processing = &#x27;&#x27;
+    ---
+    name: pdf-processing
+    description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
+    ---
+
+    # PDF Processing
+
+    ## Quick start
+
+    Use pdfplumber to extract text from PDFs:
+
+    ```python
+    import pdfplumber
+
+    with pdfplumber.open(&quot;document.pdf&quot;) as pdf:
+        text = pdf.pages[0].extract_text()
+    ```
+  &#x27;&#x27;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.antigravity-cli.useLegacyGeminiConfig"></a><a class="term" href="options.xhtml#opt-programs.antigravity-cli.useLegacyGeminiConfig"><code class="option">programs.antigravity-cli.useLegacyGeminiConfig</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to write configuration to the legacy Gemini CLI locations.</p><p>This is enabled automatically when
+<code class="option">programs.antigravity-cli.package</code> is a <code class="literal">gemini-cli</code> package.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/antigravity-cli.nix" target="_top">
+&lt;home-manager/modules/programs/antigravity-cli.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -30155,6 +30703,35 @@ list of string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.darcs.defaults"></a><a class="term" href="options.xhtml#opt-programs.darcs.defaults"><code class="option">programs.darcs.defaults</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Default values for Darcs commands.</p><p>See <a class="link" href="https://darcs.net/Using/Configuration#defaults"  target="_top">https://darcs.net/Using/Configuration#defaults</a> for details.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
+  ALL ignore-times
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/darcs.nix" target="_top">
+&lt;home-manager/modules/programs/darcs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.dbeaver.enable"></a><a class="term" href="options.xhtml#opt-programs.dbeaver.enable"><code class="option">programs.dbeaver.enable</code>
   </a>
  </span>
@@ -34542,8 +35119,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -34570,8 +35147,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35196,8 +35773,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35224,8 +35801,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35918,8 +36495,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35946,8 +36523,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38080,8 +38657,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38108,8 +38685,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38734,8 +39311,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38762,8 +39339,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -39456,8 +40033,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -39484,8 +40061,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -40928,400 +41505,6 @@ attribute set of string</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gcc.nix" target="_top">
 &lt;home-manager/modules/programs/gcc.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.enable"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.enable"><code class="option">programs.gemini-cli.enable</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable gemini-cli.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.enableMcpIntegration"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.enableMcpIntegration"><code class="option">programs.gemini-cli.enableMcpIntegration</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to integrate the MCP servers config from
-<code class="option">programs.mcp.servers</code> into
-<code class="option">programs.gemini-cli.settings.mcpServers</code>.</p><p>Note: Any servers already present in
-<code class="option">programs.gemini-cli.settings.mcpServers</code>
-is not overridden by servers present under the same
-name in <code class="option">programs.mcp.servers</code></p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.package"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.package"><code class="option">programs.gemini-cli.package</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The gemini-cli package to use.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or package</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.gemini-cli
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.commands"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.commands"><code class="option">programs.gemini-cli.commands</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>An attribute set of custom commands that will be globally available.
-The name of the attribute set will be the name of each command.
-You may use subdirectories to create namespaced commands, such as <code class="literal">git/fix</code> becoming <code class="literal">/git:fix</code>.
-See https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/commands.md#custom-commands for more information.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-attribute set of (open submodule of string)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">changelog = {
-  prompt =
-    &#x27;&#x27;
-    Your task is to parse the `&lt;version&gt;`, `&lt;change_type&gt;`, and `&lt;message&gt;` from their input and use the `write_file` tool to correctly update the `CHANGELOG.md` file.
-    &#x27;&#x27;;
-  description = &quot;Adds a new entry to the project&#x27;s CHANGELOG.md file.&quot;;
-};
-&quot;git/fix&quot; = { # Becomes /git:fix
-  prompt = &quot;Please analyze the staged git changes and provide a code fix for the issue described here: {{args}}.&quot;;
-  description = &quot;Generates a fix for a given GitHub issue.&quot;;
-};
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.commands._name_.description"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.commands._name_.description"><code class="option">programs.gemini-cli.commands.&lt;name&gt;.description</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>A brief, one-line description of what the command does.
-This text will be displayed next to your command in the /help menu.
-If you omit this field, a generic description will be generated from the filename.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-string</p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.commands._name_.prompt"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.commands._name_.prompt"><code class="option">programs.gemini-cli.commands.&lt;name&gt;.prompt</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The prompt that will be sent to the Gemini model when the command is executed.
-This can be a single-line or multi-line string.
-The special placeholder {{args}} will be replaced with the text the user typed after the command name.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-string</p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.context"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.context"><code class="option">programs.gemini-cli.context</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Global context(s) for gemini-cli.</p><p>The attribute name becomes the filename, with a <code class="filename">.md</code>
-extension added automatically. Each value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content</p></li></ul></div><p>The configured files are written to <code class="filename">~/.gemini/</code>.</p><p>Note: You can customize which context file names gemini-cli looks for by setting
-<code class="literal">settings.context.fileName</code>. For example:</p><pre><code class="programlisting nix">settings = {
-  context.fileName = [&quot;AGENTS.md&quot;, &quot;CONTEXT.md&quot;, &quot;GEMINI.md&quot;];
-};
-</code></pre>
-
-<p><span class="emphasis"><em>Type:</em></span>
-attribute set of (strings concatenated with “\n” or absolute path)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  GEMINI = &#x27;&#x27;
-    # Global Context
-
-    You are a helpful AI assistant for software development.
-
-    ## Coding Standards
-
-    - Follow consistent code style
-    - Write clear comments
-    - Test your changes
-  &#x27;&#x27;;
-
-  AGENTS = ./path/to/agents.md;
-
-  CONTEXT = &#x27;&#x27;
-    Additional context instructions here.
-  &#x27;&#x27;;
-}
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.defaultModel"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.defaultModel"><code class="option">programs.gemini-cli.defaultModel</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The default model to use for the CLI.
-Will be set as $GEMINI_MODEL when configured.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;gemini-2.5-flash&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.policies"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.policies"><code class="option">programs.gemini-cli.policies</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>An attribute set of policy definitions to create in <code class="literal">~/.gemini/policies/</code>.
-The attribute name becomes the filename with <code class="literal">.toml</code> extension automatically added.
-The value can be either an attribute set representing the TOML policy or a path to a TOML file.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-attribute set of (absolute path or TOML value)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  &quot;my-rules&quot; = {
-    rule = [
-      {
-        toolName = &quot;run_shell_command&quot;;
-        commandPrefix = &quot;git &quot;;
-        decision = &quot;ask_user&quot;;
-        priority = 100;
-      }
-    ];
-  };
-  &quot;other-rules&quot; = ./path/to/rules.toml;
-}
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.settings"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.settings"><code class="option">programs.gemini-cli.settings</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>JSON config for gemini-cli</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-JSON value</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  context = {
-    loadMemoryFromIncludeDirectories = true;
-  };
-  general = {
-    preferredEditor = &quot;nvim&quot;;
-    previewFeatures = true;
-    vimMode = true;
-  };
-  ide = {
-    enabled = true;
-  };
-  privacy = {
-    usageStatisticsEnabled = false;
-  };
-  security = {
-    auth = {
-      selectedType = &quot;oauth-personal&quot;;
-    };
-  };
-  tools = {
-    autoAccept = false;
-  };
-  ui = {
-    theme = &quot;Default&quot;;
-  };
-}
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.gemini-cli.skills"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.skills"><code class="option">programs.gemini-cli.skills</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Custom skills for gemini-cli.</p><p>This option can be either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the
-skill directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">~/.gemini/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">~/.gemini/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (symlinks <code class="literal">~/.gemini/skills/&lt;name&gt;/</code> to that directory)</p></li></ul></div><p>If a path is used, it is expected to contain one folder per
-skill name, each containing a <code class="filename">SKILL.md</code>. The directory is
-symlinked to <code class="filename">~/.gemini/skills/</code>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-(attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  xlsx = ./skills/xlsx/SKILL.md;
-  data-analysis = ./skills/data-analysis;
-  pdf-processing = &#x27;&#x27;
-    ---
-    name: pdf-processing
-    description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
-    ---
-
-    # PDF Processing
-
-    ## Quick start
-
-    Use pdfplumber to extract text from PDFs:
-
-    ```python
-    import pdfplumber
-
-    with pdfplumber.open(&quot;document.pdf&quot;) as pdf:
-        text = pdf.pages[0].extract_text()
-    ```
-  &#x27;&#x27;;
-}
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
-&lt;home-manager/modules/programs/gemini-cli.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -54332,6 +54515,111 @@ absolute path or JSON value</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.kiro-cli.enable"></a><a class="term" href="options.xhtml#opt-programs.kiro-cli.enable"><code class="option">programs.kiro-cli.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable kiro-cli, the command-line interface for Kiro.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kiro-cli.nix" target="_top">
+&lt;home-manager/modules/programs/kiro-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.kiro-cli.enableBashIntegration"></a><a class="term" href="options.xhtml#opt-programs.kiro-cli.enableBashIntegration"><code class="option">programs.kiro-cli.enableBashIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Bash integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<a class="xref" href="options.xhtml#opt-home.shell.enableBashIntegration"  ><code class="option">home.shell.enableBashIntegration</code></a></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kiro-cli.nix" target="_top">
+&lt;home-manager/modules/programs/kiro-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.kiro-cli.enableZshIntegration"></a><a class="term" href="options.xhtml#opt-programs.kiro-cli.enableZshIntegration"><code class="option">programs.kiro-cli.enableZshIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Zsh integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<a class="xref" href="options.xhtml#opt-home.shell.enableZshIntegration"  ><code class="option">home.shell.enableZshIntegration</code></a></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kiro-cli.nix" target="_top">
+&lt;home-manager/modules/programs/kiro-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.kiro-cli.package"></a><a class="term" href="options.xhtml#opt-programs.kiro-cli.package"><code class="option">programs.kiro-cli.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The kiro-cli package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.kiro-cli
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kiro-cli.nix" target="_top">
+&lt;home-manager/modules/programs/kiro-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.kitty.enable"></a><a class="term" href="options.xhtml#opt-programs.kitty.enable"><code class="option">programs.kitty.enable</code>
   </a>
  </span>
@@ -57559,8 +57847,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -57587,8 +57875,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58213,8 +58501,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58241,8 +58529,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58935,8 +59223,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58963,8 +59251,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -62915,11 +63203,11 @@ boolean</p>
  </span>
 </dt>
 <dd>
-<p>MCP server configurations written to
-<code class="filename">XDG_CONFIG_HOME/mcp/mcp.json</code></p>
+<p>MCP server configurations written to <code class="filename">$XDG_CONFIG_HOME/mcp/mcp.json</code>.</p><p>Each server is either a local (stdio) server via <code class="option">command</code>
+or a remote (HTTP/SSE) server via <code class="option">url</code>.</p><p>Besides declared options, arbitrary MCP fields are allowed.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-JSON value</p>
+attribute set of (open submodule of (JSON value))</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -62927,19 +63215,195 @@ JSON value</p>
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   everything = {
     command = &quot;npx&quot;;
-    args = [
-      &quot;-y&quot;
-      &quot;@modelcontextprotocol/server-everything&quot;
-    ];
+    args = [ &quot;-y&quot; &quot;@modelcontextprotocol/server-everything&quot; ];
   };
   context7 = {
     url = &quot;https://mcp.context7.com/mcp&quot;;
-    headers = {
-      CONTEXT7_API_KEY = &quot;{env:CONTEXT7_API_KEY}&quot;;
-    };
+    headers.CONTEXT7_API_KEY = &quot;{env:CONTEXT7_API_KEY}&quot;;
+  };
+  codeberg = {
+    command = &quot;/path/to/forgejo-mcp&quot;;
+    args = [ &quot;transport&quot; &quot;stdio&quot; &quot;--url&quot; &quot;https://codeberg.org&quot; ];
+    env.FORGEJO_ACCESS_TOKEN.file = &quot;/run/secrets/codeberg_token&quot;;
   };
 }
 
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mcp.nix" target="_top">
+&lt;home-manager/modules/programs/mcp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mcp.servers._name_.enabled"></a><a class="term" href="options.xhtml#opt-programs.mcp.servers._name_.enabled"><code class="option">programs.mcp.servers.&lt;name&gt;.enabled</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether this MCP server is enabled.</p><p>If this option and <code class="literal">disabled</code> are both set, they must satisfy
+<code class="literal">enabled == !disabled</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mcp.nix" target="_top">
+&lt;home-manager/modules/programs/mcp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mcp.servers._name_.args"></a><a class="term" href="options.xhtml#opt-programs.mcp.servers._name_.args"><code class="option">programs.mcp.servers.&lt;name&gt;.args</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Arguments passed to <code class="option">command</code>.
+Only valid for local servers.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;-y&quot;
+  &quot;@modelcontextprotocol/server-everything&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mcp.nix" target="_top">
+&lt;home-manager/modules/programs/mcp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mcp.servers._name_.command"></a><a class="term" href="options.xhtml#opt-programs.mcp.servers._name_.command"><code class="option">programs.mcp.servers.&lt;name&gt;.command</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Executable for a local (stdio) MCP server.
+Mutually exclusive with <code class="option">url</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;npx&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mcp.nix" target="_top">
+&lt;home-manager/modules/programs/mcp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mcp.servers._name_.env"></a><a class="term" href="options.xhtml#opt-programs.mcp.servers._name_.env"><code class="option">programs.mcp.servers.&lt;name&gt;.env</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Environment variables set when spawning the MCP server.
+Each value is either a literal string or a file reference
+(<code class="literal">{ file = &quot;/path&quot;; }</code>).</p><p>File references behave differently depending on the consumer:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Clients that understand the <code class="literal">{file:…}</code> syntax (e.g. opencode)
+receive the path as a substitution token.</p></li><li class="listitem"><p>Other clients receive a generated wrapper script that reads
+the secret at startup instead.</p></li></ul></div><p>Only valid for local servers.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (string or (submodule))</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  API_BASE_URL = &quot;https://api.example.com&quot;;
+  FORGEJO_ACCESS_TOKEN.file = &quot;/run/secrets/forgejo_token&quot;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mcp.nix" target="_top">
+&lt;home-manager/modules/programs/mcp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mcp.servers._name_.headers"></a><a class="term" href="options.xhtml#opt-programs.mcp.servers._name_.headers"><code class="option">programs.mcp.servers.&lt;name&gt;.headers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>HTTP headers for requests to a remote MCP server.
+Only valid for remote servers.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{ MY_API_KEY = &quot;{env:MY_API_KEY}&quot;; }
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mcp.nix" target="_top">
+&lt;home-manager/modules/programs/mcp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mcp.servers._name_.url"></a><a class="term" href="options.xhtml#opt-programs.mcp.servers._name_.url"><code class="option">programs.mcp.servers.&lt;name&gt;.url</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>HTTP(S) endpoint for a remote (SSE/HTTP) MCP server.
+Mutually exclusive with <code class="option">command</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;https://mcp.context7.com/mcp&quot;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -74859,6 +75323,287 @@ attribute set of section of an INI file (attrs of INI atom (null, bool, int, flo
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pgcli.nix" target="_top">
 &lt;home-manager/modules/programs/pgcli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.enable"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.enable"><code class="option">programs.pi-coding-agent.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable pi-coding-agent.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.package"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.package"><code class="option">programs.pi-coding-agent.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The pi-coding-agent package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.pi-coding-agent
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.configDir"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.configDir"><code class="option">programs.pi-coding-agent.configDir</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Directory holding Pi Coding Agent’s configuration files.</p><p>Defaults to <code class="filename">~/.pi/agent</code>, matching the upstream
+<span class="command"><strong>pi</strong></span> CLI default. The <code class="envar">PI_CODING_AGENT_DIR</code>
+environment variable is exported automatically whenever the
+directory differs from this default so the CLI reads
+configuration from the same location.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;${config.home.homeDirectory}/.pi/agent&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;${config.xdg.configHome}/pi/agent&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.context"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.context"><code class="option">programs.pi-coding-agent.context</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Global context for Pi Coding Agent.</p><p>The value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content</p></li></ul></div><p>The configured content is written to
+<code class="filename">AGENTS.md</code> inside
+<code class="option">programs.pi-coding-agent.configDir</code>
+(default <code class="filename">~/.pi/agent/AGENTS.md</code>).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n” or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">./pi-context.md
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.extraPackages"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.extraPackages"><code class="option">programs.pi-coding-agent.extraPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra packages available to Pi Coding Agent.
+These are added to the PATH of the wrapped pi binary.</p><p>Needed for packages installed by pi (e.g.
+<span class="command"><strong>npm:@termdraw/pi</strong></span> requires <span class="command"><strong>npm</strong></span> and
+<span class="command"><strong>bun</strong></span>).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ pkgs.nodejs pkgs.bun ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.keybindings"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.keybindings"><code class="option">programs.pi-coding-agent.keybindings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Keybindings configuration written to
+<code class="filename">~/.pi/agent/keybindings.json</code>.
+See <a class="link" href="https://pi.dev/docs/latest/keybindings"  target="_top">https://pi.dev/docs/latest/keybindings</a> for the
+documentation.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;tui.editor.cursorDown&quot; = [
+    &quot;down&quot;
+    &quot;ctrl+n&quot;
+  ];
+  &quot;tui.editor.cursorUp&quot; = [
+    &quot;up&quot;
+    &quot;ctrl+p&quot;
+  ];
+  &quot;tui.editor.deleteWordBackward&quot; = [
+    &quot;ctrl+w&quot;
+    &quot;alt+backspace&quot;
+  ];
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.models"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.models"><code class="option">programs.pi-coding-agent.models</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom model providers written to
+<code class="filename">~/.pi/agent/models.json</code>.</p><p>Each provider entry may contain <code class="literal">baseUrl</code>,
+<code class="literal">api</code>, <code class="literal">apiKey</code>, <code class="literal">compat</code>, and a <code class="literal">models</code>
+list with <code class="literal">id</code>, <code class="literal">name</code>, <code class="literal">reasoning</code>, etc.</p><p>See <a class="link" href="https://pi.dev/docs/latest/models"  target="_top">https://pi.dev/docs/latest/models</a> for the
+documentation.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  providers = {
+    ollama = {
+      api = &quot;openai-completions&quot;;
+      apiKey = &quot;ollama&quot;;
+      baseUrl = &quot;http://localhost:11434/v1&quot;;
+      models = [
+        {
+          id = &quot;llama3.1:8b&quot;;
+        }
+      ];
+    };
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.pi-coding-agent.settings"></a><a class="term" href="options.xhtml#opt-programs.pi-coding-agent.settings"><code class="option">programs.pi-coding-agent.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">~/.pi/agent/settings.json</code>.
+See <a class="link" href="https://pi.dev/docs/latest/settings"  target="_top">https://pi.dev/docs/latest/settings</a> for the
+documentation.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  compaction = {
+    enabled = true;
+    keepRecentTokens = 20000;
+    reserveTokens = 16384;
+  };
+  defaultModel = &quot;claude-sonnet-4-20250514&quot;;
+  defaultProvider = &quot;anthropic&quot;;
+  defaultThinkingLevel = &quot;medium&quot;;
+  enabledModels = [
+    &quot;claude-*&quot;
+    &quot;gpt-4o&quot;
+  ];
+  packages = [
+    &quot;npm:@termdraw/pi&quot;
+    &quot;npm:pi-mcp-adapter&quot;
+  ];
+  retry = {
+    enabled = true;
+    maxRetries = 3;
+  };
+  theme = &quot;dark&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/pi-coding-agent.nix" target="_top">
+&lt;home-manager/modules/programs/pi-coding-agent.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90431,8 +91176,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -90459,8 +91204,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/j7iw2z89wd00s2g9520jflqsyazarx2d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -101639,6 +102384,34 @@ attribute set of (YAML 1.1 value or absolute path or strings concatenated with �
     };
   };
 }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zellij.nix" target="_top">
+&lt;home-manager/modules/programs/zellij.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.zellij.plugins"></a><a class="term" href="options.xhtml#opt-programs.zellij.plugins"><code class="option">programs.zellij.plugins</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of Zellij plugins</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">with pkgs.zellijPlugins; [ jbz vim-plugins-navigator zjstatus ]
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -136690,6 +137463,35 @@ submodule</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-sshAuthSock.enable"></a><a class="term" href="options.xhtml#opt-sshAuthSock.enable"><code class="option">sshAuthSock.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to set <code class="envar">SSH_AUTH_SOCK</code> in shells, systemd, and the D-BUS daemon
+unless it was already defined through SSH agent forwarding.</p><p>Typically, this module will be implicitly enabled and configured by SSH
+agent modules.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/ssh-auth-sock.nix" target="_top">
+&lt;home-manager/modules/misc/ssh-auth-sock.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-sshAuthSock.initialization.bash"></a><a class="term" href="options.xhtml#opt-sshAuthSock.initialization.bash"><code class="option">sshAuthSock.initialization.bash</code>
   </a>
  </span>
@@ -136699,6 +137501,9 @@ submodule</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock&quot;
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -136721,6 +137526,9 @@ string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
 
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;set -x SSH_AUTH_SOCK $HOME/.ssh/agent.sock&quot;
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -136741,6 +137549,62 @@ string</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;$env.SSH_AUTH_SOCK = $HOME/.ssh/agent.sock&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/ssh-auth-sock.nix" target="_top">
+&lt;home-manager/modules/misc/ssh-auth-sock.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-sshAuthSock.initialization.zsh"></a><a class="term" href="options.xhtml#opt-sshAuthSock.initialization.zsh"><code class="option">sshAuthSock.initialization.zsh</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Code that initializes <code class="envar">SSH_AUTH_SOCK</code> in zsh.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">config.sshAuthSock.initialization.bash
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/ssh-auth-sock.nix" target="_top">
+&lt;home-manager/modules/misc/ssh-auth-sock.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-sshAuthSock.systemd.socketProviderUnit"></a><a class="term" href="options.xhtml#opt-sshAuthSock.systemd.socketProviderUnit"><code class="option">sshAuthSock.systemd.socketProviderUnit</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The name of the systemd unit responsible for providing the <code class="envar">SSH_AUTH_SOCK</code>.</p><p>Services that rely on an active SSH authentication agent can reference
+this option to declare a dependency onto this unit, ensuring that the
+socket is available and being served before they start.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;ssh-agent.service&quot;
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
