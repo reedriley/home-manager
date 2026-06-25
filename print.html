@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-30f88e46.js";
+            window.path_to_searchindex_js = "searchindex-98b2feea.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-f8343b4c.js"></script>
+        <script src="toc-7db4b871.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -9228,9 +9228,12 @@ boolean</p>
 <p><em>Type:</em>
 absolute path <em>(read only)</em></p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">"${home.homeDirectory}/.nix-profile"  or
-"/etc/profiles/per-user/${home.username}"
-
+<pre><code class="language-nix">''
+  - `/etc/profiles/per-user/''${home.username}`, if Home Manager is installed as
+    a submodule and `home-manager.useUserPackages` is enabled, else
+  - `''${xdg.stateHome}/nix/profile`, if `nix.useXdg` is enabled, else
+  - `''${home.homeDirectory}/.nix-profile`.
+''
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -11017,6 +11020,24 @@ null or boolean or string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/launchd/default.nix">&lt;home-manager/modules/launchd/default.nix&gt;</a></li>
 </ul>
+<h2 id="opt-launchd.agents._name_.domain"><a class="header" href="#opt-launchd.agents._name_.domain">launchd.agents.&lt;name&gt;.domain</a></h2>
+<p>The launchd domain to bootstrap this agent into.</p>
+<p>The <code>gui</code> domain is appropriate for agents that need the user’s
+Aqua session, such as window managers, hotkey daemons, and other
+graphical tools. The <code>user</code> domain is appropriate for background
+services that do not require a graphical login session.</p>
+<p><em>Type:</em>
+one of “gui”, “user”</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">"gui"
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"user"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/launchd/default.nix">&lt;home-manager/modules/launchd/default.nix&gt;</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="lib"><a href="#lib" class="header">lib</a></h1>
 <h2 id="opt-lib"><a class="header" href="#opt-lib">lib</a></h2>
@@ -11098,7 +11119,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-meta.teams"><a class="header" href="#opt-meta.teams">meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -11113,7 +11134,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="news-1"><a href="#news-1" class="header">news</a></h1>
@@ -11885,6 +11906,7 @@ string</p>
 <li><a href="#htop">htop</a></li>
 <li><a href="#hwatch">hwatch</a></li>
 <li><a href="#hyfetch">hyfetch</a></li>
+<li><a href="#hyprland-qt-support">hyprland-qt-support</a></li>
 <li><a href="#hyprlock">hyprlock</a></li>
 <li><a href="#hyprpanel">hyprpanel</a></li>
 <li><a href="#hyprshot">hyprshot</a></li>
@@ -19179,6 +19201,11 @@ boolean</p>
 <p>Note: Settings defined in <code>programs.mcp.servers</code> are merged
 with <code>programs.claude-code.mcpServers</code>, with Claude Code servers
 taking precedence.</p>
+<p>Servers marked disabled (via <code>enabled = false</code> or <code>disabled = true</code>)
+are still written to <code>.mcp.json</code> but rejected through
+<code>disabledMcpjsonServers</code> in <code>settings.json</code>, since Claude Code
+has no per-server <code>enabled</code> field. This keeps a disabled server
+present (and re-enableable) instead of dropping it.</p>
 <p><em>Type:</em>
 boolean</p>
 <p><em>Default:</em></p>
@@ -19882,7 +19909,7 @@ boolean</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.enableMcpIntegration"><a class="header" href="#opt-programs.codex.enableMcpIntegration">programs.codex.enableMcpIntegration</a></h2>
 <p>Whether to integrate the MCP server config from
@@ -19898,7 +19925,7 @@ boolean</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.package"><a class="header" href="#opt-programs.codex.package">programs.codex.package</a></h2>
 <p>The codex package to use.</p>
@@ -19909,7 +19936,7 @@ null or package</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.context"><a class="header" href="#opt-programs.codex.context">programs.codex.context</a></h2>
 <p>Global context for Codex.</p>
@@ -19934,7 +19961,64 @@ strings concatenated with “\n” or absolute path</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.codex.contextOverride"><a class="header" href="#opt-programs.codex.contextOverride">programs.codex.contextOverride</a></h2>
+<p>Global override context for Codex.</p>
+<p>This has the same value format as <code>programs.codex.context</code>,
+but writes <code>CODEX_HOME/AGENTS.override.md</code>.</p>
+<p>Codex prefers <code>AGENTS.override.md</code> over
+<code>AGENTS.md</code> in the same directory.</p>
+<p><em>Type:</em>
+null or strings concatenated with “\n” or absolute path</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">''
+  - Temporarily ignore default global guidance
+  - Prefer brief answers while debugging
+''
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.codex.hooks"><a class="header" href="#opt-programs.codex.hooks">programs.codex.hooks</a></h2>
+<p>Lifecycle hook events written to <code>CODEX_HOME/hooks.json</code>.</p>
+<p>This option uses the same event structure as
+<code>programs.codex.settings.hooks</code> and writes it under the
+top-level <code>hooks</code> key expected by Codex’s JSON hooks file.</p>
+<p>Hooks can also be configured inline through
+<code>programs.codex.settings.hooks</code>; prefer using only one hook
+representation per layer.</p>
+<p><em>Type:</em>
+JSON value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  PreToolUse = [
+    {
+      matcher = "^Bash$";
+      hooks = [
+        {
+          type = "command";
+          command = "/usr/local/bin/codex-pre-tool-use";
+          timeout = 30;
+          statusMessage = "Checking Bash command";
+        }
+      ];
+    }
+  ];
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.marketplaces"><a class="header" href="#opt-programs.codex.marketplaces">programs.codex.marketplaces</a></h2>
 <p>Custom marketplaces for Codex plugins.
@@ -19963,7 +20047,7 @@ attribute set of (package or absolute path)</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.plugins"><a class="header" href="#opt-programs.codex.plugins">programs.codex.plugins</a></h2>
 <p>List of plugins to use when running Codex.
@@ -19995,7 +20079,7 @@ list of (package or absolute path)</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.profiles"><a class="header" href="#opt-programs.codex.profiles">programs.codex.profiles</a></h2>
 <p>Named Codex configuration profiles written to
@@ -20023,7 +20107,7 @@ attribute set of (TOML value)</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.rules"><a class="header" href="#opt-programs.codex.rules">programs.codex.rules</a></h2>
 <p>Codex rules files to manage under <code>CODEX_HOME/rules/</code>.</p>
@@ -20051,13 +20135,13 @@ attribute set of (strings concatenated with “\n” or absolute path)</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.settings"><a class="header" href="#opt-programs.codex.settings">programs.codex.settings</a></h2>
 <p>Configuration written to <code>CODEX_HOME/config.toml</code> (0.2.0+)
 or <code>~/.codex/config.yaml</code> (&lt;0.2.0). Per default <code>CODEX_HOME</code>
 defaults to ~/.codex.
-See <a href="https://github.com/openai/codex/blob/main/codex-rs/config.md">https://github.com/openai/codex/blob/main/codex-rs/config.md</a> for supported values.</p>
+See <a href="https://developers.openai.com/codex/config-reference">https://developers.openai.com/codex/config-reference</a> for supported values.</p>
 <p><em>Type:</em>
 null or TOML value</p>
 <p><em>Default:</em></p>
@@ -20070,8 +20154,8 @@ null or TOML value</p>
   model_providers = {
     ollama = {
       name = "Ollama";
-      baseURL = "http://localhost:11434/v1";
-      envKey = "OLLAMA_API_KEY";
+      base_url = "http://localhost:11434/v1";
+      env_key = "OLLAMA_API_KEY";
     };
   };
   mcp_servers = {
@@ -20088,7 +20172,7 @@ null or TOML value</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.codex.skills"><a class="header" href="#opt-programs.codex.skills">programs.codex.skills</a></h2>
 <p>Custom skills for Codex.</p>
@@ -20145,7 +20229,7 @@ skills can coexist.</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex.nix">&lt;home-manager/modules/programs/codex.nix&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/codex/options.nix">&lt;home-manager/modules/programs/codex/options.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="command-not-found"><a href="#command-not-found" class="header">command-not-found</a></h1>
@@ -23347,7 +23431,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.meta.teams">programs.firefox.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23362,7 +23446,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.settings">programs.firefox.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -23737,7 +23821,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.meta.teams">programs.firefox.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23752,7 +23836,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.mimeTypes">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -24145,7 +24229,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.search.meta.teams">programs.firefox.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -24160,7 +24244,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.order"><a class="header" href="#opt-programs.firefox.profiles._name_.search.order">programs.firefox.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -25382,7 +25466,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.meta.teams">programs.floorp.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25397,7 +25481,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.settings">programs.floorp.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -25772,7 +25856,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.meta.teams">programs.floorp.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25787,7 +25871,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.mimeTypes">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -26180,7 +26264,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.search.meta.teams">programs.floorp.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -26195,7 +26279,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.order"><a class="header" href="#opt-programs.floorp.profiles._name_.search.order">programs.floorp.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -30760,6 +30844,54 @@ JSON value</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyfetch.nix">&lt;home-manager/modules/programs/hyfetch.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="hyprland-qt-support"><a href="#hyprland-qt-support" class="header">hyprland-qt-support</a></h1>
+<h2 id="opt-programs.hyprland-qt-support.enable"><a class="header" href="#opt-programs.hyprland-qt-support.enable">programs.hyprland-qt-support.enable</a></h2>
+<p>Whether to enable Hyprland Qt support, a Qt6 QML style provider for hypr* apps.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprland-qt-support.nix">&lt;home-manager/modules/programs/hyprland-qt-support.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.hyprland-qt-support.package"><a class="header" href="#opt-programs.hyprland-qt-support.package">programs.hyprland-qt-support.package</a></h2>
+<p>The hyprland-qt-support package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.hyprland-qt-support
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprland-qt-support.nix">&lt;home-manager/modules/programs/hyprland-qt-support.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.hyprland-qt-support.settings"><a class="header" href="#opt-programs.hyprland-qt-support.settings">programs.hyprland-qt-support.settings</a></h2>
+<p>Hyprland Qt Support configuration written in Nix. See
+<a href="https://wiki.hypr.land/Hypr-Ecosystem/hyprland-qt-support/">https://wiki.hypr.land/Hypr-Ecosystem/hyprland-qt-support/</a> for more
+examples.</p>
+<p><em>Type:</em>
+Hyprland configuration value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  roundness = 1;
+  border_width = 1;
+  reduce_motion = false;
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprland-qt-support.nix">&lt;home-manager/modules/programs/hyprland-qt-support.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="hyprlock"><a href="#hyprlock" class="header">hyprlock</a></h1>
@@ -36396,7 +36528,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.meta.teams">programs.librewolf.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -36411,7 +36543,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.settings">programs.librewolf.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -36786,7 +36918,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.meta.teams">programs.librewolf.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -36801,7 +36933,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.mimeTypes">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -37194,7 +37326,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.meta.teams">programs.librewolf.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37209,7 +37341,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.order"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.order">programs.librewolf.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -55106,7 +55238,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.meta.teams">programs.thunderbird.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -55121,7 +55253,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix">/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix">/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.order"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.order">programs.thunderbird.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -62288,6 +62420,83 @@ else
 strings concatenated with “\n”</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting">programs.zsh.fastSyntaxHighlighting</a></h2>
+<p>Options related to zsh-fast-syntax-highlighting.</p>
+<p><em>Type:</em>
+submodule</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.enable"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.enable">programs.zsh.fastSyntaxHighlighting.enable</a></h2>
+<p>Whether to enable zsh fast syntax highlighting.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.package"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.package">programs.zsh.fastSyntaxHighlighting.package</a></h2>
+<p>The zsh-fast-syntax-highlighting package to use.</p>
+<p><em>Type:</em>
+package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.zsh-fast-syntax-highlighting
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.settings"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.settings">programs.zsh.fastSyntaxHighlighting.settings</a></h2>
+<p>Custom values to add to <code>FAST_HIGHLIGHT</code>, like custom chroma
+configuration (see <a href="https://github.com/zdharma-continuum/fast-syntax-highlighting/blob/master/CHROMA_GUIDE.adoc">upstream’s documentation</a>
+and its <a href="https://github.com/zdharma-continuum/fast-syntax-highlighting/tree/master/%E2%86%92chroma">built-in chromas</a>).</p>
+<p><em>Type:</em>
+attribute set of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  "chroma-," = "→chroma/-precommand.ch";
+  chroma-comma = "→chroma/-precommand.ch";
+  use_brackets = "0";
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh">&lt;home-manager/modules/programs/zsh&gt;</a></li>
+</ul>
+<h2 id="opt-programs.zsh.fastSyntaxHighlighting.theme"><a class="header" href="#opt-programs.zsh.fastSyntaxHighlighting.theme">programs.zsh.fastSyntaxHighlighting.theme</a></h2>
+<p>If non-null, Home Manager will run <code>fast-theme -q</code>
+with this value to select the theme. <code>fast-theme</code> persists the
+selected theme in fast-syntax-highlighting’s work directory, so
+setting this option back to <code>null</code> stops Home Manager from
+invoking <code>fast-theme</code> but does not reset an already
+persisted theme. Run <code>fast-theme -r</code> manually to clear
+upstream state.</p>
+<p>See <a href="https://github.com/zdharma-continuum/fast-syntax-highlighting/blob/master/THEME_GUIDE.md">upstream’s documentation</a></p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"clean"
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -90958,12 +91167,21 @@ section is therefore not final.</p>
 <h2 id="highlights"><a class="header" href="#highlights">Highlights</a></h2>
 <p>This release has the following notable changes:</p>
 <ul>
-<li>The <a href="#opt-programs.uv.enable">programs.uv.enable</a> module can now install uv-managed Python
+<li>
+<p>The <a href="#opt-programs.uv.enable">programs.uv.enable</a> module can now install uv-managed Python
 versions and tools through the new <code>programs.uv.python.versions</code>,
 <code>programs.uv.python.default</code>, and <code>programs.uv.tool.packages</code> options. Unpinned
 entries track the latest release on each activation while pinned ones stay put,
 and <code>programs.uv.python.prune</code> / <code>programs.uv.tool.prune</code> make the managed set
-fully declarative by removing versions and tools that are no longer listed.</li>
+fully declarative by removing versions and tools that are no longer listed.</p>
+</li>
+<li>
+<p>On Darwin, Home Manager launchd agents now support
+<a href="#opt-launchd.agents._name_.domain">launchd.agents.<em>name</em>.domain</a> to choose either the user’s GUI or
+background launchd domain. Background services provided by Home Manager now
+use the user domain, which allows activations from contexts such as SSH
+sessions without requiring an active graphical login session.</p>
+</li>
 </ul>
 <p><a id="sec-release-26.11-state-version-changes"></a></p>
 <h2 id="state-version-changes"><a class="header" href="#state-version-changes">State Version Changes</a></h2>
