@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-3fafa906.js";
+            window.path_to_searchindex_js = "searchindex-283c3852.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-03ac8ac2.js"></script>
+        <script src="toc-acef97cd.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -9008,9 +9008,9 @@ For example, <a href="#opt-home.pointerCursor.gtk.enable"></a> will generate
 the gtk cursor configuration, but <a href="#opt-gtk.enable"></a> needs
 to be set for it to be applied.</p>
 <p><em>Type:</em>
-null or (submodule)</p>
+submodule</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">null
+<pre><code class="language-nix">{ }
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -11120,7 +11120,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-meta.teams"><a class="header" href="#opt-meta.teams">meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -11135,7 +11135,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="news-1"><a href="#news-1" class="header">news</a></h1>
@@ -11799,6 +11799,7 @@ string</p>
 <li><a href="#ashell">ashell</a></li>
 <li><a href="#astroid">astroid</a></li>
 <li><a href="#atool">atool</a></li>
+<li><a href="#attic-client">attic-client</a></li>
 <li><a href="#atuin">atuin</a></li>
 <li><a href="#autojump">autojump</a></li>
 <li><a href="#autorandr">autorandr</a></li>
@@ -16121,6 +16122,74 @@ attribute set of (string or signed integer)</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/atool.nix">&lt;home-manager/modules/programs/atool.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="attic-client"><a href="#attic-client" class="header">attic-client</a></h1>
+<h2 id="opt-programs.attic-client.enable"><a class="header" href="#opt-programs.attic-client.enable">programs.attic-client.enable</a></h2>
+<p>Whether to enable the attic binary cache client.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.attic-client.package"><a class="header" href="#opt-programs.attic-client.package">programs.attic-client.package</a></h2>
+<p>The attic-client package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.attic-client
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.attic-client.settings"><a class="header" href="#opt-programs.attic-client.settings">programs.attic-client.settings</a></h2>
+<p>Configuration written to
+<code>$XDG_CONFIG_HOME/attic/config.toml</code>.</p>
+<p>See <a href="https://github.com/zhaofengli/attic">https://github.com/zhaofengli/attic</a> for the available options.</p>
+<p><em>Type:</em>
+TOML value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  default-server = "myserver";
+  servers.myserver = {
+    endpoint = "https://myserver.org";
+    token-file = "/run/secrets/attic-token";
+  };
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.attic-client.watchStore"><a class="header" href="#opt-programs.attic-client.watchStore">programs.attic-client.watchStore</a></h2>
+<p>Caches to push new store paths to via <code>attic watch-store</code>.
+Format: <code>server:cache</code> (or just <code>cache</code> to use the default server).</p>
+<p>This relies on systemd and is only supported on Linux.</p>
+<p><em>Type:</em>
+list of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "mycacheserver:mycache"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/attic-client.nix">&lt;home-manager/modules/programs/attic-client.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="atuin"><a href="#atuin" class="header">atuin</a></h1>
 <h2 id="opt-programs.atuin.enable"><a class="header" href="#opt-programs.atuin.enable">programs.atuin.enable</a></h2>
 <p>Whether to enable atuin.</p>
@@ -19988,14 +20057,24 @@ null or strings concatenated with “\n” or absolute path</p>
 </ul>
 <h2 id="opt-programs.codex.hooks"><a class="header" href="#opt-programs.codex.hooks">programs.codex.hooks</a></h2>
 <p>Lifecycle hook events written to <code>CODEX_HOME/hooks.json</code>.</p>
-<p>This option uses the same event structure as
-<code>programs.codex.settings.hooks</code> and writes it under the
+<p>This option can either be a hook event attribute set, a path to a
+complete hooks JSON file, or a path to a hook bundle directory
+containing <code>hooks.json</code> and supporting hook scripts.</p>
+<p>Attribute set values use the same event structure as
+<code>programs.codex.settings.hooks</code> and are written under the
 top-level <code>hooks</code> key expected by Codex’s JSON hooks file.</p>
+<p>Directory values install <code>hooks.json</code> to
+<code>CODEX_HOME/hooks.json</code> and install the full directory to
+the active Codex home hooks directory. In the default layout, commands
+can reference bundled scripts with paths such as
+<code>$HOME/.codex/hooks/my-hook</code>. When
+<code>home.preferXdgDirectories</code> is enabled, use
+<code>$CODEX_HOME/hooks/my-hook</code>.</p>
 <p>Hooks can also be configured inline through
 <code>programs.codex.settings.hooks</code>; prefer using only one hook
 representation per layer.</p>
 <p><em>Type:</em>
-JSON value</p>
+JSON value or absolute path</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{ }
 </code></pre>
@@ -23431,7 +23510,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.meta.teams">programs.firefox.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23446,7 +23525,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.settings">programs.firefox.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -23821,7 +23900,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.meta.teams">programs.firefox.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23836,7 +23915,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.mimeTypes">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -24229,7 +24308,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.search.meta.teams">programs.firefox.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -24244,7 +24323,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.order"><a class="header" href="#opt-programs.firefox.profiles._name_.search.order">programs.firefox.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -24303,6 +24382,23 @@ attribute set of (Firefox preference (int, bool, string, and also attrs, list, f
   }];
 }
 
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox">&lt;home-manager/modules/programs/firefox&gt;</a></li>
+</ul>
+<h2 id="opt-programs.firefox.profiles._name_.storeId"><a class="header" href="#opt-programs.firefox.profiles._name_.storeId">programs.firefox.profiles.&lt;name&gt;.storeId</a></h2>
+<p>Store ID. Either null, or the first segment of a UUID string.</p>
+<p>If this value is set, then profile.ini is created
+with predictable StoreIDs.</p>
+<p>This is useful to keep the StoreID static,
+which helps to bridge the firefox profiles and the new
+firefox switchable profile implementations.</p>
+<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p><em>Type:</em>
+null or string matching the pattern [0-9a-f]{8}</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -25466,7 +25562,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.meta.teams">programs.floorp.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25481,7 +25577,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.settings">programs.floorp.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -25856,7 +25952,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.meta.teams">programs.floorp.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25871,7 +25967,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.mimeTypes">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -26264,7 +26360,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.search.meta.teams">programs.floorp.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -26279,7 +26375,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.order"><a class="header" href="#opt-programs.floorp.profiles._name_.search.order">programs.floorp.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -26338,6 +26434,23 @@ attribute set of (Floorp preference (int, bool, string, and also attrs, list, fl
   }];
 }
 
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix">&lt;home-manager/modules/programs/floorp.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.floorp.profiles._name_.storeId"><a class="header" href="#opt-programs.floorp.profiles._name_.storeId">programs.floorp.profiles.&lt;name&gt;.storeId</a></h2>
+<p>Store ID. Either null, or the first segment of a UUID string.</p>
+<p>If this value is set, then profile.ini is created
+with predictable StoreIDs.</p>
+<p>This is useful to keep the StoreID static,
+which helps to bridge the firefox profiles and the new
+firefox switchable profile implementations.</p>
+<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p><em>Type:</em>
+null or string matching the pattern [0-9a-f]{8}</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -26860,7 +26973,40 @@ package</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.changeDirWidgetCommand"><a class="header" href="#opt-programs.fzf.changeDirWidgetCommand">programs.fzf.changeDirWidgetCommand</a></h2>
+<h2 id="opt-programs.fzf.changeDirWidget.bash.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.bash.command">programs.fzf.changeDirWidget.bash.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.bash.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.bash.options">programs.fzf.changeDirWidget.bash.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.command">programs.fzf.changeDirWidget.command</a></h2>
 <p>The command that gets executed as the source for fzf for the
 ALT-C keybinding.</p>
 <p><em>Type:</em>
@@ -26875,12 +27021,111 @@ null or string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.changeDirWidgetOptions"><a class="header" href="#opt-programs.fzf.changeDirWidgetOptions">programs.fzf.changeDirWidgetOptions</a></h2>
+<h2 id="opt-programs.fzf.changeDirWidget.fish.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.fish.command">programs.fzf.changeDirWidget.fish.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.fish.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.fish.options">programs.fzf.changeDirWidget.fish.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.nushell.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.nushell.command">programs.fzf.changeDirWidget.nushell.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.nushell.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.nushell.options">programs.fzf.changeDirWidget.nushell.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.options">programs.fzf.changeDirWidget.options</a></h2>
 <p>Command line options for the ALT-C keybinding.</p>
 <p><em>Type:</em>
 list of string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'tree -C {} | head -200'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.zsh.command"><a class="header" href="#opt-programs.fzf.changeDirWidget.zsh.command">programs.fzf.changeDirWidget.zsh.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type d"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.changeDirWidget.zsh.options"><a class="header" href="#opt-programs.fzf.changeDirWidget.zsh.options">programs.fzf.changeDirWidget.zsh.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">[
@@ -26945,7 +27190,40 @@ list of string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.fileWidgetCommand"><a class="header" href="#opt-programs.fzf.fileWidgetCommand">programs.fzf.fileWidgetCommand</a></h2>
+<h2 id="opt-programs.fzf.fileWidget.bash.command"><a class="header" href="#opt-programs.fzf.fileWidget.bash.command">programs.fzf.fileWidget.bash.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.bash.options"><a class="header" href="#opt-programs.fzf.fileWidget.bash.options">programs.fzf.fileWidget.bash.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.command"><a class="header" href="#opt-programs.fzf.fileWidget.command">programs.fzf.fileWidget.command</a></h2>
 <p>The command that gets executed as the source for fzf for the
 CTRL-T keybinding.</p>
 <p><em>Type:</em>
@@ -26960,7 +27238,73 @@ null or string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.fileWidgetOptions"><a class="header" href="#opt-programs.fzf.fileWidgetOptions">programs.fzf.fileWidgetOptions</a></h2>
+<h2 id="opt-programs.fzf.fileWidget.fish.command"><a class="header" href="#opt-programs.fzf.fileWidget.fish.command">programs.fzf.fileWidget.fish.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.fish.options"><a class="header" href="#opt-programs.fzf.fileWidget.fish.options">programs.fzf.fileWidget.fish.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.nushell.command"><a class="header" href="#opt-programs.fzf.fileWidget.nushell.command">programs.fzf.fileWidget.nushell.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.nushell.options"><a class="header" href="#opt-programs.fzf.fileWidget.nushell.options">programs.fzf.fileWidget.nushell.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.options"><a class="header" href="#opt-programs.fzf.fileWidget.options">programs.fzf.fileWidget.options</a></h2>
 <p>Command line options for the CTRL-T keybinding.</p>
 <p><em>Type:</em>
 list of string</p>
@@ -26976,12 +27320,200 @@ list of string</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
 </ul>
-<h2 id="opt-programs.fzf.historyWidgetOptions"><a class="header" href="#opt-programs.fzf.historyWidgetOptions">programs.fzf.historyWidgetOptions</a></h2>
+<h2 id="opt-programs.fzf.fileWidget.zsh.command"><a class="header" href="#opt-programs.fzf.fileWidget.zsh.command">programs.fzf.fileWidget.zsh.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"fd --type f"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.fileWidget.zsh.options"><a class="header" href="#opt-programs.fzf.fileWidget.zsh.options">programs.fzf.fileWidget.zsh.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--preview 'head {}'"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.bash.command"><a class="header" href="#opt-programs.fzf.historyWidget.bash.command">programs.fzf.historyWidget.bash.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.bash.options"><a class="header" href="#opt-programs.fzf.historyWidget.bash.options">programs.fzf.historyWidget.bash.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.command"><a class="header" href="#opt-programs.fzf.historyWidget.command">programs.fzf.historyWidget.command</a></h2>
+<p>The command that gets executed as the source for fzf for the
+CTRL-R keybinding.</p>
+<p>An empty string disables the CTRL-R binding, which is the supported
+way to yield CTRL-R to a history manager such as Atuin or McFly.
+Non-empty custom commands require fzf 0.66.0 or later but are not
+supported by fzf yet and currently print a shell startup warning.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.fish.command"><a class="header" href="#opt-programs.fzf.historyWidget.fish.command">programs.fzf.historyWidget.fish.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.fish.options"><a class="header" href="#opt-programs.fzf.historyWidget.fish.options">programs.fzf.historyWidget.fish.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.nushell.command"><a class="header" href="#opt-programs.fzf.historyWidget.nushell.command">programs.fzf.historyWidget.nushell.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.nushell.options"><a class="header" href="#opt-programs.fzf.historyWidget.nushell.options">programs.fzf.historyWidget.nushell.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.options"><a class="header" href="#opt-programs.fzf.historyWidget.options">programs.fzf.historyWidget.options</a></h2>
 <p>Command line options for the CTRL-R keybinding.</p>
 <p><em>Type:</em>
 list of string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "--sort"
+  "--exact"
+]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.zsh.command"><a class="header" href="#opt-programs.fzf.historyWidget.zsh.command">programs.fzf.historyWidget.zsh.command</a></h2>
+<p>Shell-specific override for this widget command.</p>
+<p>If this is <code>null</code>, the global command is used.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fzf.nix">&lt;home-manager/modules/programs/fzf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.fzf.historyWidget.zsh.options"><a class="header" href="#opt-programs.fzf.historyWidget.zsh.options">programs.fzf.historyWidget.zsh.options</a></h2>
+<p>Shell-specific override for this widget’s command line
+options.</p>
+<p>If this is <code>null</code>, the global options are used.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">[
@@ -36603,7 +37135,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.meta.teams">programs.librewolf.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -36618,7 +37150,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.settings">programs.librewolf.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -36993,7 +37525,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.meta.teams">programs.librewolf.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37008,7 +37540,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.mimeTypes">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -37401,7 +37933,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.meta.teams">programs.librewolf.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37416,7 +37948,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.order"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.order">programs.librewolf.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -37475,6 +38007,23 @@ attribute set of (LibreWolf preference (int, bool, string, and also attrs, list,
   }];
 }
 
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix">&lt;home-manager/modules/programs/librewolf.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.librewolf.profiles._name_.storeId"><a class="header" href="#opt-programs.librewolf.profiles._name_.storeId">programs.librewolf.profiles.&lt;name&gt;.storeId</a></h2>
+<p>Store ID. Either null, or the first segment of a UUID string.</p>
+<p>If this value is set, then profile.ini is created
+with predictable StoreIDs.</p>
+<p>This is useful to keep the StoreID static,
+which helps to bridge the firefox profiles and the new
+firefox switchable profile implementations.</p>
+<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p><em>Type:</em>
+null or string matching the pattern [0-9a-f]{8}</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -55313,7 +55862,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.meta.teams">programs.thunderbird.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -55328,7 +55877,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix">/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix">/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.order"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.order">programs.thunderbird.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -65901,101 +66450,21 @@ null or package</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
 </ul>
-<h2 id="opt-services.clipse.allowDuplicates"><a class="header" href="#opt-services.clipse.allowDuplicates">services.clipse.allowDuplicates</a></h2>
-<p>Allow duplicates</p>
-<p><em>Type:</em>
-boolean</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">false
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.historySize"><a class="header" href="#opt-services.clipse.historySize">services.clipse.historySize</a></h2>
-<p>Number of history lines to keep.</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">100
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.heightCut"><a class="header" href="#opt-services.clipse.imageDisplay.heightCut">services.clipse.imageDisplay.heightCut</a></h2>
-<p>Height cut</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">2
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.scaleX"><a class="header" href="#opt-services.clipse.imageDisplay.scaleX">services.clipse.imageDisplay.scaleX</a></h2>
-<p>Image scaling factor X</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">9
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.scaleY"><a class="header" href="#opt-services.clipse.imageDisplay.scaleY">services.clipse.imageDisplay.scaleY</a></h2>
-<p>Image scaling factor Y</p>
-<p><em>Type:</em>
-signed integer</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">9
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.imageDisplay.type"><a class="header" href="#opt-services.clipse.imageDisplay.type">services.clipse.imageDisplay.type</a></h2>
-<p>Preview image method</p>
-<p><em>Type:</em>
-one of “basic”, “kitty”, “sixel”</p>
-<p><em>Default:</em></p>
-<pre><code class="language-nix">"basic"
-</code></pre>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipse.nix">&lt;home-manager/modules/services/clipse.nix&gt;</a></li>
-</ul>
-<h2 id="opt-services.clipse.keyBindings"><a class="header" href="#opt-services.clipse.keyBindings">services.clipse.keyBindings</a></h2>
-<p>Custom key bindings</p>
+<h2 id="opt-services.clipse.settings"><a class="header" href="#opt-services.clipse.settings">services.clipse.settings</a></h2>
+<p>Configuration written to
+<code>$XDG_CONFIG_HOME/clipse/config.json</code></p>
+<p>Please refer to <a href="https://github.com/savedra1/clipse#configuration">https://github.com/savedra1/clipse#configuration</a> for
+more information.</p>
 <p><em>Type:</em>
 JSON value</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{ }
 </code></pre>
 <p><em>Example:</em></p>
-<pre><code class="language-nix"> {
-   "choose" = "enter";
-   "clearSelected" = "S";
-   "down" = "down";
-   "end" = "end";
-   "filter" = "/";
-   "home" = "home";
-   "more" = "?";
-   "nextPage" = "right";
-   "prevPage" = "left";
-   "preview" = "t";
-   "quit" = "q";
-   "remove" = "x";
-   "selectDown" = "ctrl+down";
-   "selectSingle" = "s";
-   "selectUp" = "ctrl+up";
-   "togglePin" = "p";
-   "togglePinned" = "tab";
-   "up" = "up";
-   "yankFilter" = "ctrl+s";
-};
+<pre><code class="language-nix">{
+  allowDuplicates = true;
+  maxHistory = 1001;
+}
 
 </code></pre>
 <p><em>Declared by:</em></p>
@@ -66023,7 +66492,7 @@ string</p>
 <p>Configuration written to
 <code>$XDG_CONFIG_HOME/clipse/custom_theme.json</code>.</p>
 <p><em>Type:</em>
-JSON value</p>
+JSON value or absolute path</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{
   useCustomTheme = false;
@@ -70079,6 +70548,10 @@ null or boolean</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">true
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.alias"><a class="header" href="#opt-services.kanshi.settings._.output.alias">services.kanshi.settings.*.output.alias</a></h2>
 <p>Defines an alias for the output</p>
 <p><em>Type:</em>
@@ -70089,6 +70562,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"laptopMonitor"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.criteria"><a class="header" href="#opt-services.kanshi.settings._.output.criteria">services.kanshi.settings.*.output.criteria</a></h2>
 <p>The criteria can either be an output name, an output description or “*”.
 The latter can be used to match any output.</p>
@@ -70098,6 +70575,10 @@ output names and descriptions can be obtained via
 <code>swaymsg -t get_outputs</code>.</p>
 <p><em>Type:</em>
 string</p>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.mode"><a class="header" href="#opt-services.kanshi.settings._.output.mode">services.kanshi.settings.*.output.mode</a></h2>
 <p>&lt;width&gt;x&lt;height&gt;[@&lt;rate&gt;[Hz]]</p>
 <p>Configures the specified output to use the specified mode.
@@ -70111,6 +70592,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1920x1080@60Hz"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.position"><a class="header" href="#opt-services.kanshi.settings._.output.position">services.kanshi.settings.*.output.position</a></h2>
 <p>&lt;x&gt;,&lt;y&gt;</p>
 <p>Places the output at the specified position in the global coordinates
@@ -70123,6 +70608,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1600,0"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.scale"><a class="header" href="#opt-services.kanshi.settings._.output.scale">services.kanshi.settings.*.output.scale</a></h2>
 <p>Scales the output by the specified scale factor.</p>
 <p><em>Type:</em>
@@ -70133,6 +70622,10 @@ null or floating point number</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">2
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.status"><a class="header" href="#opt-services.kanshi.settings._.output.status">services.kanshi.settings.*.output.status</a></h2>
 <p>Enables or disables the specified output.</p>
 <p><em>Type:</em>
@@ -70140,6 +70633,10 @@ null or one of “enable”, “disable”</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.output.transform"><a class="header" href="#opt-services.kanshi.settings._.output.transform">services.kanshi.settings.*.output.transform</a></h2>
 <p>Sets the output transform.</p>
 <p><em>Type:</em>
@@ -70147,6 +70644,10 @@ null or one of “normal”, “90”, “180”, “270”, “flipped”, “f
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile"><a class="header" href="#opt-services.kanshi.settings._.profile">services.kanshi.settings.*.profile</a></h2>
 <p>profile attribute set.</p>
 <p><em>Type:</em>
@@ -70167,6 +70668,10 @@ executed asynchronously with no guaranteed ordering.</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"[ \${pkg.sway}/bin/swaymsg workspace 1, move workspace to eDP-1 ]"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.name"><a class="header" href="#opt-services.kanshi.settings._.profile.name">services.kanshi.settings.*.profile.name</a></h2>
 <p>Profile name</p>
 <p><em>Type:</em>
@@ -70174,6 +70679,10 @@ string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">""
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs">services.kanshi.settings.*.profile.outputs</a></h2>
 <p>Outputs configuration.</p>
 <p><em>Type:</em>
@@ -70181,6 +70690,10 @@ list of (submodule)</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">[ ]
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.adaptiveSync"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.adaptiveSync">services.kanshi.settings.*.profile.outputs.*.adaptiveSync</a></h2>
 <p>Enables or disables adaptive synchronization
 (aka. Variable Refresh Rate).</p>
@@ -70192,6 +70705,10 @@ null or boolean</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">true
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.alias"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.alias">services.kanshi.settings.*.profile.outputs.*.alias</a></h2>
 <p>Defines an alias for the output</p>
 <p><em>Type:</em>
@@ -70202,6 +70719,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"laptopMonitor"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.criteria"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.criteria">services.kanshi.settings.*.profile.outputs.*.criteria</a></h2>
 <p>The criteria can either be an output name, an output description or “*”.
 The latter can be used to match any output.</p>
@@ -70211,6 +70732,10 @@ output names and descriptions can be obtained via
 <code>swaymsg -t get_outputs</code>.</p>
 <p><em>Type:</em>
 string</p>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.mode"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.mode">services.kanshi.settings.*.profile.outputs.*.mode</a></h2>
 <p>&lt;width&gt;x&lt;height&gt;[@&lt;rate&gt;[Hz]]</p>
 <p>Configures the specified output to use the specified mode.
@@ -70224,6 +70749,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1920x1080@60Hz"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.position"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.position">services.kanshi.settings.*.profile.outputs.*.position</a></h2>
 <p>&lt;x&gt;,&lt;y&gt;</p>
 <p>Places the output at the specified position in the global coordinates
@@ -70236,6 +70765,10 @@ null or string</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">"1600,0"
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.scale"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.scale">services.kanshi.settings.*.profile.outputs.*.scale</a></h2>
 <p>Scales the output by the specified scale factor.</p>
 <p><em>Type:</em>
@@ -70246,6 +70779,10 @@ null or floating point number</p>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">2
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.status"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.status">services.kanshi.settings.*.profile.outputs.*.status</a></h2>
 <p>Enables or disables the specified output.</p>
 <p><em>Type:</em>
@@ -70253,6 +70790,10 @@ null or one of “enable”, “disable”</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.settings._.profile.outputs._.transform"><a class="header" href="#opt-services.kanshi.settings._.profile.outputs._.transform">services.kanshi.settings.*.profile.outputs.*.transform</a></h2>
 <p>Sets the output transform.</p>
 <p><em>Type:</em>
@@ -70260,6 +70801,10 @@ null or one of “normal”, “90”, “180”, “270”, “flipped”, “f
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/kanshi.nix">&lt;home-manager/modules/services/kanshi.nix&gt;</a></li>
+</ul>
 <h2 id="opt-services.kanshi.systemdTarget"><a class="header" href="#opt-services.kanshi.systemdTarget">services.kanshi.systemdTarget</a></h2>
 <p>Systemd target to bind to.</p>
 <p><em>Type:</em>
@@ -78531,6 +79076,31 @@ list of (string or (open submodule of (JSON value)))</p>
 string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">"‹name›"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/syncthing.nix">&lt;home-manager/modules/services/syncthing.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.syncthing.settings.folders._name_.ignorePatterns"><a class="header" href="#opt-services.syncthing.settings.folders._name_.ignorePatterns">services.syncthing.settings.folders.&lt;name&gt;.ignorePatterns</a></h2>
+<p>Syncthing can be configured to ignore certain files in a folder using ignore patterns.
+Enter them as a list of strings, one string per line.
+See the Syncthing documentation for syntax: <a href="https://docs.syncthing.net/users/ignoring.html">https://docs.syncthing.net/users/ignoring.html</a>
+Patterns set using the WebUI will be overridden if you define this option.
+If you want to override the ignore patterns to be empty, use <code>ignorePatterns = []</code>.
+Deleting the <code>ignorePatterns</code> option will not remove the patterns from Syncthing automatically
+because patterns are only handled by the module if this option is defined. Either use
+<code>ignorePatterns = []</code> before deleting the option or remove the patterns afterwards using the WebUI.</p>
+<p><em>Type:</em>
+null or (list of string)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  "// This is a comment"
+  "*.part // Firefox downloads and other things"
+  "*.crdownload // Chrom(ium|e) downloads"
+]
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -88459,38 +89029,6 @@ boolean</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/misc/numlock.nix">&lt;home-manager/modules/misc/numlock.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.package"><a class="header" href="#opt-xsession.pointerCursor.package">xsession.pointerCursor.package</a></h2>
-<p>Alias of <code>home.pointerCursor.package</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.defaultCursor"><a class="header" href="#opt-xsession.pointerCursor.defaultCursor">xsession.pointerCursor.defaultCursor</a></h2>
-<p>Alias of <code>home.pointerCursor.x11.defaultCursor</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.name"><a class="header" href="#opt-xsession.pointerCursor.name">xsession.pointerCursor.name</a></h2>
-<p>Alias of <code>home.pointerCursor.name</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
-</ul>
-<h2 id="opt-xsession.pointerCursor.size"><a class="header" href="#opt-xsession.pointerCursor.size">xsession.pointerCursor.size</a></h2>
-<p>Alias of <code>home.pointerCursor.size</code>.</p>
-<p><em>Type:</em>
-submodule</p>
-<p><em>Declared by:</em></p>
-<ul>
-<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix">&lt;home-manager/modules/config/home-cursor.nix&gt;</a></li>
 </ul>
 <h2 id="opt-xsession.preferStatusNotifierItems"><a class="header" href="#opt-xsession.preferStatusNotifierItems">xsession.preferStatusNotifierItems</a></h2>
 <p>Whether tray applets should prefer using the Status Notifier
