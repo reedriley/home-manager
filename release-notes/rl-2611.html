@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-dd1b626c.js";
+            window.path_to_searchindex_js = "../searchindex-841661f3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-e4a1e6d0.js"></script>
+        <script src="../toc-e71ae3fe.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -186,7 +186,7 @@ section is therefore not final.</p>
 <p>This release has the following notable changes:</p>
 <ul>
 <li>
-<p>The <a href="../options/home-manager/programs/uv.html#opt-programs.uv.enable">programs.uv.enable</a> module can now install uv-managed Python
+<p>The <a href="../options/home-manager/programs/uv.html">programs.uv</a> module can now install uv-managed Python
 versions and tools through the new <code>programs.uv.python.versions</code>,
 <code>programs.uv.python.default</code>, and <code>programs.uv.tool.packages</code> options. Unpinned
 entries track the latest release on each activation while pinned ones stay put,
@@ -207,10 +207,23 @@ session.</p>
 changes are only active if the <code>home.stateVersion</code> option is set to
 “26.11” or later.</p>
 <ul>
-<li>The KDL options under <code>programs.zellij</code> will now correctly escape backslashes
+<li>
+<p>The KDL options under <code>programs.zellij</code> will now correctly escape backslashes
 in string values. For example, the Nix string <code>"\\"</code> will now correctly
 generate the KDL string <code>"\\"</code>. Previously, this would have generated <code>"\"</code>,
-which is invalid KDL. The following options are affected:
+which is invalid KDL. The following options are affected:</p>
+<ul>
+<li><code>programs.zellij.settings</code></li>
+<li><code>programs.zellij.themes</code></li>
+<li><code>programs.zellij.layouts</code></li>
+</ul>
+</li>
+<li>
+<p>The KDL options under <code>programs.zellij</code> will now escape tabs in string
+values. For example, the Nix string <code>"\t"</code> (corresponding to a single tab)
+will now generate the KDL string <code>"\t"</code>. Previously, this would have generated
+<code>"&lt;tab&gt;"</code> (where <code>&lt;tab&gt;</code> denotes a literal tab character). The following
+options are affected:</p>
 <ul>
 <li><code>programs.zellij.settings</code></li>
 <li><code>programs.zellij.themes</code></li>

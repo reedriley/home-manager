@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-dd1b626c.js";
+            window.path_to_searchindex_js = "searchindex-841661f3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-e4a1e6d0.js"></script>
+        <script src="toc-e71ae3fe.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -270,7 +270,7 @@ example, you should be able to successfully run a command like
 <code>nix-instantiate '&lt;nixpkgs&gt;' -A hello</code> without having to switch to
 the root user. For a multi-user install of Nix this means that your
 user must be covered by the
-<a href="https://nixos.org/nix/manual/#conf-allowed-users"><code>allowed-users</code></a>
+<a href="https://nix.dev/manual/nix/stable/command-ref/conf-file.html?highlight=allowed-user#conf-allowed-users"><code>allowed-users</code></a>
 Nix option. On NixOS you can control this option using the
 <a href="https://nixos.org/manual/nixos/stable/options.html#opt-nix.settings.allowed-users"><code>nix.settings.allowed-users</code></a>
 system option.</p>
@@ -3693,6 +3693,19 @@ null or (list of string)</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/calendar.nix">&lt;home-manager/modules/accounts/calendar.nix&gt;</a></li>
 </ul>
+<h2 id="opt-accounts.calendar.accounts._name_.vdirsyncer.localReadOnly"><a class="header" href="#opt-accounts.calendar.accounts._name_.vdirsyncer.localReadOnly">accounts.calendar.accounts.&lt;name&gt;.vdirsyncer.localReadOnly</a></h2>
+<p>Whether vdirsyncer should treat the local storage as read-only.</p>
+<p>Changes that cannot be written to the local storage are handled
+according to the value of the <code>partialSync</code> option.</p>
+<p><em>Type:</em>
+null or boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/calendar.nix">&lt;home-manager/modules/accounts/calendar.nix&gt;</a></li>
+</ul>
 <h2 id="opt-accounts.calendar.accounts._name_.vdirsyncer.metadata"><a class="header" href="#opt-accounts.calendar.accounts._name_.vdirsyncer.metadata">accounts.calendar.accounts.&lt;name&gt;.vdirsyncer.metadata</a></h2>
 <p>Metadata keys that should be synchronized when vdirsyncer
 metasync is executed.</p>
@@ -4383,6 +4396,19 @@ null or (list of string)</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/contacts.nix">&lt;home-manager/modules/accounts/contacts.nix&gt;</a></li>
 </ul>
+<h2 id="opt-accounts.contact.accounts._name_.vdirsyncer.localReadOnly"><a class="header" href="#opt-accounts.contact.accounts._name_.vdirsyncer.localReadOnly">accounts.contact.accounts.&lt;name&gt;.vdirsyncer.localReadOnly</a></h2>
+<p>Whether vdirsyncer should treat the local storage as read-only.</p>
+<p>Changes that cannot be written to the local storage are handled
+according to the value of the <code>partialSync</code> option.</p>
+<p><em>Type:</em>
+null or boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/contacts.nix">&lt;home-manager/modules/accounts/contacts.nix&gt;</a></li>
+</ul>
 <h2 id="opt-accounts.contact.accounts._name_.vdirsyncer.metadata"><a class="header" href="#opt-accounts.contact.accounts._name_.vdirsyncer.metadata">accounts.contact.accounts.&lt;name&gt;.vdirsyncer.metadata</a></h2>
 <p>Metadata keys that should be synchronized when vdirsyncer
 metasync is executed.</p>
@@ -4588,6 +4614,7 @@ attribute set of (submodule)</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/msmtp">&lt;home-manager/modules/programs/msmtp&gt;</a></li>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/meli.nix">&lt;home-manager/modules/programs/meli.nix&gt;</a></li>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mbsync">&lt;home-manager/modules/programs/mbsync&gt;</a></li>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/lieer.nix">&lt;home-manager/modules/programs/lieer.nix&gt;</a></li>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/himalaya.nix">&lt;home-manager/modules/programs/himalaya.nix&gt;</a></li>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/getmail">&lt;home-manager/modules/programs/getmail&gt;</a></li>
@@ -5703,6 +5730,63 @@ string</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix">&lt;home-manager/modules/accounts/email.nix&gt;</a></li>
+</ul>
+<h2 id="opt-accounts.email.accounts._name_.mblaze.enable"><a class="header" href="#opt-accounts.email.accounts._name_.mblaze.enable">accounts.email.accounts.&lt;name&gt;.mblaze.enable</a></h2>
+<p>Whether to enable mblaze for this email account.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
+</ul>
+<h2 id="opt-accounts.email.accounts._name_.mblaze.sendMailCommand"><a class="header" href="#opt-accounts.email.accounts._name_.mblaze.sendMailCommand">accounts.email.accounts.&lt;name&gt;.mblaze.sendMailCommand</a></h2>
+<p>Command to send a mail, written to the <code>Sendmail:</code> entry of the
+account profile. If msmtp is enabled for the account, then this
+is set to
+<code>msmtpq --read-envelope-from --read-recipients</code>.</p>
+<p><code>mcom(1)</code> appends the <code>Sendmail-Args:</code> entry to it,
+<code>-t</code> by default, which asks for the recipients to be collected
+from the message headers. Set that entry through
+<a href="#opt-accounts.email.accounts._name_.mblaze.settings"></a> for a
+command that takes its arguments differently.</p>
+<p>When left null the entry is omitted and mblaze falls back to
+<code>sendmail</code> from <code>PATH</code>.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"msmtpq --read-envelope-from --read-recipients"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
+</ul>
+<h2 id="opt-accounts.email.accounts._name_.mblaze.settings"><a class="header" href="#opt-accounts.email.accounts._name_.mblaze.settings">accounts.email.accounts.&lt;name&gt;.mblaze.settings</a></h2>
+<p>Entries added to this mblaze account profile, as documented in
+<code>mblaze-profile(5)</code>. An entry defined here overrides
+the generated one of the same name, as well as the one defined
+by <a href="#opt-programs.mblaze.settings"></a>.</p>
+<p><em>Type:</em>
+attribute set of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  Scan-Format = "%c%u%r %-3n %10d %17f %t %2i%s";
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
 </ul>
 <h2 id="opt-accounts.email.accounts._name_.mbsync.enable"><a class="header" href="#opt-accounts.email.accounts._name_.mbsync.enable">accounts.email.accounts.&lt;name&gt;.mbsync.enable</a></h2>
 <p>Whether to enable synchronization using mbsync.</p>
@@ -9629,6 +9713,25 @@ attribute set of absolute path</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/i18n/input-method/fcitx5.nix">&lt;home-manager/modules/i18n/input-method/fcitx5.nix&gt;</a></li>
 </ul>
+<h2 id="opt-i18n.inputMethod.fcitx5.sessionVariables"><a class="header" href="#opt-i18n.inputMethod.fcitx5.sessionVariables">i18n.inputMethod.fcitx5.sessionVariables</a></h2>
+<p>The environment variables used to configure Fcitx5.</p>
+<p>The default values should be suitable for most desktop environments and should
+not normally need to be changed.</p>
+<p>If you need to override them, see the
+<a href="https://fcitx-im.org/wiki/Fcitx_5#For_Users">Fcitx5 user guide</a>.</p>
+<p><em>Type:</em>
+lazy attribute set of (null or string or absolute path or signed integer or floating point number or boolean)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{
+  GLFW_IM_MODULE = "ibus";
+  SDL_IM_MODULE = "fcitx";
+  XMODIFIERS = "@im=fcitx";
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/i18n/input-method/fcitx5.nix">&lt;home-manager/modules/i18n/input-method/fcitx5.nix&gt;</a></li>
+</ul>
 <h2 id="opt-i18n.inputMethod.fcitx5.settings.addons"><a class="header" href="#opt-i18n.inputMethod.fcitx5.settings.addons">i18n.inputMethod.fcitx5.settings.addons</a></h2>
 <p>The addon configures in <code>conf</code> folder in ini format with global sections.
 Each item is written to the corresponding file.</p>
@@ -9724,6 +9827,22 @@ open submodule of attribute set of section of an INI file (attrs of INI atom (nu
     Name = "pinyin";
   };
 }
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/i18n/input-method/fcitx5.nix">&lt;home-manager/modules/i18n/input-method/fcitx5.nix&gt;</a></li>
+</ul>
+<h2 id="opt-i18n.inputMethod.fcitx5.systemd.enable"><a class="header" href="#opt-i18n.inputMethod.fcitx5.systemd.enable">i18n.inputMethod.fcitx5.systemd.enable</a></h2>
+<p>Whether to enable the systemd user service.</p>
+<p>This service is not required if the desktop environment supports
+<a href="https://fcitx-im.org/wiki/Setup_Fcitx_5#XDG_Autostart">XDG Autostart</a>.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -11039,6 +11158,29 @@ one of “gui”, “user”</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/launchd/default.nix">&lt;home-manager/modules/launchd/default.nix&gt;</a></li>
 </ul>
+<h2 id="opt-launchd.agents._name_.waitForNixStore"><a class="header" href="#opt-launchd.agents._name_.waitForNixStore">launchd.agents.&lt;name&gt;.waitForNixStore</a></h2>
+<p>Whether to start the agent through a <code>/bin/sh</code> wrapper that waits
+for the Nix store to be mounted before running the agent’s
+command. This guards against launchd starting the agent before
+the Nix store volume is available, for example early during login
+when the store volume is encrypted.</p>
+<p>When disabled, the agent’s command is run through a launcher
+script named after the agent instead. This makes the agent appear
+under its own name, rather than as “sh”, in System Settings &gt;
+Login Items &amp; Extensions, but the agent will fail to start if
+launchd runs it before the Nix store is mounted.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/launchd/default.nix">&lt;home-manager/modules/launchd/default.nix&gt;</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="lib"><a href="#lib" class="header">lib</a></h1>
 <h2 id="opt-lib"><a class="header" href="#opt-lib">lib</a></h2>
@@ -11120,7 +11262,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-meta.teams"><a class="header" href="#opt-meta.teams">meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -11135,7 +11277,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="news-1"><a href="#news-1" class="header">news</a></h1>
@@ -11815,6 +11957,7 @@ string</p>
 <li><a href="#bottom">bottom</a></li>
 <li><a href="#boxxy">boxxy</a></li>
 <li><a href="#brave">brave</a></li>
+<li><a href="#brave-origin">brave-origin</a></li>
 <li><a href="#broot">broot</a></li>
 <li><a href="#browserpass">browserpass</a></li>
 <li><a href="#btop">btop</a></li>
@@ -11832,6 +11975,7 @@ string</p>
 <li><a href="#codex">codex</a></li>
 <li><a href="#command-not-found">command-not-found</a></li>
 <li><a href="#comodoro">comodoro</a></li>
+<li><a href="#crush">crush</a></li>
 <li><a href="#cudatext">cudatext</a></li>
 <li><a href="#cursor">cursor</a></li>
 <li><a href="#darcs">darcs</a></li>
@@ -11848,6 +11992,7 @@ string</p>
 <li><a href="#discord">discord</a></li>
 <li><a href="#distrobox">distrobox</a></li>
 <li><a href="#docker-cli">docker-cli</a></li>
+<li><a href="#dprint">dprint</a></li>
 <li><a href="#earthly">earthly</a></li>
 <li><a href="#ec">ec</a></li>
 <li><a href="#eclipse">eclipse</a></li>
@@ -11864,6 +12009,7 @@ string</p>
 <li><a href="#firefox">firefox</a></li>
 <li><a href="#firefoxpwa">firefoxpwa</a></li>
 <li><a href="#fish">fish</a></li>
+<li><a href="#flake-edit">flake-edit</a></li>
 <li><a href="#flashspace">flashspace</a></li>
 <li><a href="#floorp">floorp</a></li>
 <li><a href="#foliate">foliate</a></li>
@@ -11913,6 +12059,7 @@ string</p>
 <li><a href="#hyprlock">hyprlock</a></li>
 <li><a href="#hyprpanel">hyprpanel</a></li>
 <li><a href="#hyprshot">hyprshot</a></li>
+<li><a href="#hyprtoolkit">hyprtoolkit</a></li>
 <li><a href="#i3bar-river">i3bar-river</a></li>
 <li><a href="#i3blocks">i3blocks</a></li>
 <li><a href="#i3status">i3status</a></li>
@@ -11967,6 +12114,7 @@ string</p>
 <li><a href="#man">man</a></li>
 <li><a href="#mangohud">mangohud</a></li>
 <li><a href="#matplotlib">matplotlib</a></li>
+<li><a href="#mblaze">mblaze</a></li>
 <li><a href="#mbsync">mbsync</a></li>
 <li><a href="#mc">mc</a></li>
 <li><a href="#mcfly">mcfly</a></li>
@@ -12147,8 +12295,10 @@ string</p>
 <li><a href="#wayprompt">wayprompt</a></li>
 <li><a href="#wezterm">wezterm</a></li>
 <li><a href="#windsurf">windsurf</a></li>
+<li><a href="#wiremix">wiremix</a></li>
 <li><a href="#wleave">wleave</a></li>
 <li><a href="#wlogout">wlogout</a></li>
+<li><a href="#wlr-which-key">wlr-which-key</a></li>
 <li><a href="#wofi">wofi</a></li>
 <li><a href="#workstyle">workstyle</a></li>
 <li><a href="#xmobar">xmobar</a></li>
@@ -14923,7 +15073,8 @@ null or string</p>
 <p>MCP server configuration written to
 <code>~/.gemini/config/mcp_config.json</code>.</p>
 <p>Remote servers use <code>serverUrl</code>; <code>url</code> and <code>httpUrl</code> are accepted
-for migration and converted automatically.</p>
+for migration and converted automatically. <code>enabled</code> is accepted
+and converted to <code>disabled</code>.</p>
 <p><em>Type:</em>
 JSON value</p>
 <p><em>Default:</em></p>
@@ -18235,6 +18386,25 @@ list of package</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix">&lt;home-manager/modules/programs/chromium.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="brave-origin"><a href="#brave-origin" class="header">brave-origin</a></h1>
+<h2 id="opt-programs.brave-origin.nativeMessagingHosts"><a class="header" href="#opt-programs.brave-origin.nativeMessagingHosts">programs.brave-origin.nativeMessagingHosts</a></h2>
+<p>List of Brave Origin native messaging hosts to install.</p>
+<p><em>Type:</em>
+list of package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">[
+  pkgs.keepassxc
+]
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix">&lt;home-manager/modules/programs/chromium.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="broot"><a href="#broot" class="header">broot</a></h1>
 <h2 id="opt-programs.broot.enable"><a class="header" href="#opt-programs.broot.enable">programs.broot.enable</a></h2>
 <p>Whether to enable Broot, a better way to navigate directories.</p>
@@ -19456,25 +19626,27 @@ strings concatenated with “\n” or absolute path</p>
 </ul>
 <h2 id="opt-programs.claude-code.hooks"><a class="header" href="#opt-programs.claude-code.hooks">programs.claude-code.hooks</a></h2>
 <p>Custom hooks for Claude Code.
-The attribute name becomes the hook filename, and the value is the hook script content.
+The attribute name becomes the hook filename, and the value is either:</p>
+<ul>
+<li>Inline content as a string</li>
+<li>A path to a file containing the hook script content
 Hooks are stored in the <code>hooks/</code> subdirectory of
-<code>programs.claude-code.configDir</code>.</p>
+<code>programs.claude-code.configDir</code> and made executable.</li>
+</ul>
 <p><em>Type:</em>
-attribute set of strings concatenated with “\n”</p>
+attribute set of (strings concatenated with “\n” or absolute path)</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">{ }
 </code></pre>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">{
-  post-commit = ''
-    #!/usr/bin/env bash
-    echo "Committed with message: $1"
-  '';
   pre-edit = ''
     #!/usr/bin/env bash
     echo "About to edit file: $1"
   '';
+  post-commit = ./hooks/post-commit.sh;
 }
+
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -19640,33 +19812,46 @@ attribute set of (strings concatenated with “\n” or absolute path)</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code/options.nix">&lt;home-manager/modules/programs/claude-code/options.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.claude-code.plugins"><a class="header" href="#opt-programs.claude-code.plugins">programs.claude-code.plugins</a></h2>
-<p>List of plugins to use when running Claude Code.
-Each entry is either:</p>
+<p>Plugins to use when running Claude Code.
+The attribute name becomes the plugin directory name, and the value is
+either:</p>
 <ul>
 <li>A path to the plugin directory</li>
 <li>The plugin package, whether a nix package or the output of a fetcher
-With Claude Code 2.1.157 or later, plugins are linked into
-<code>programs.claude-code.configDir</code> and loaded as personal plugins.
+With Claude Code 2.1.157 or later, each plugin is symlinked into the
+<code>skills/</code> subdirectory of
+<code>programs.claude-code.configDir</code> and loaded as a personal
+plugin, exposing its skills, agents, commands, hooks, and MCP servers.
 Versions 2.1.76 through 2.1.156 fall back to a legacy <code>--plugin-dir</code>
 wrapper, as do packages without detectable version metadata.
 Strict-parser subcommands such as <code>claude rc</code> may reject
 arguments from that compatibility path.</li>
 </ul>
+<p>A plugin that lives in a subdirectory of a larger repository can be
+referenced through a store path, in which case only that subdirectory
+is linked and the surrounding repository is left out.</p>
+<p>A plain list of plugins is still accepted but deprecated, since the
+directory name is then derived from each entry’s base name and store
+paths produce unstable names such as <code>bxa1s0m3h4sh-source</code>.</p>
 <p><em>Type:</em>
-list of (package or absolute path)</p>
+(attribute set of (package or absolute path)) or list of (package or absolute path)</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">[ ]
+<pre><code class="language-nix">{ }
 </code></pre>
 <p><em>Example:</em></p>
-<pre><code class="language-nix">[
-  ./my-local-plugin
-  fetchFromGitHub {
+<pre><code class="language-nix">{
+  my-local-plugin = ./my-local-plugin;
+  claude-plugin = fetchFromGitHub {
     owner = "some-github-org";
     repo = "claude-plugin";
     rev = "779a68ebc2a75e4a184d2c87e5a43a758e6458a1";
     sha256 = "228fdd7e5908ea1d2f65218ecd9c71e1eefa0834d200d55fbb8bf8b5563acec0";
-  }
-]
+  };
+
+  # A plugin can also be a subdirectory within a package source
+  # (store path).
+  nested-plugin = "${pkgs.some-package.src}/claude-plugin";
+}
 
 </code></pre>
 <p><em>Declared by:</em></p>
@@ -20384,6 +20569,137 @@ open submodule of (TOML value)</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/comodoro.nix">&lt;home-manager/modules/programs/comodoro.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="crush"><a href="#crush" class="header">crush</a></h1>
+<h2 id="opt-programs.crush.enable"><a class="header" href="#opt-programs.crush.enable">programs.crush.enable</a></h2>
+<p>Whether to enable Crush, Charm’s coding agent for the terminal.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.enableMcpIntegration"><a class="header" href="#opt-programs.crush.enableMcpIntegration">programs.crush.enableMcpIntegration</a></h2>
+<p>Whether to integrate the MCP servers config from
+<code>programs.mcp.servers</code> into
+<code>programs.crush.settings.mcp</code>.</p>
+<p>Note: Settings defined in <code>programs.mcp.servers</code> are merged
+with <code>programs.crush.settings.mcp</code>, with Crush settings taking
+precedence.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.package"><a class="header" href="#opt-programs.crush.package">programs.crush.package</a></h2>
+<p>The crush package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.crush
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.settings"><a class="header" href="#opt-programs.crush.settings">programs.crush.settings</a></h2>
+<p>Configuration written to
+<code>$XDG_CONFIG_HOME/crush/crush.json</code>.
+See <a href="https://github.com/charmbracelet/crush">https://github.com/charmbracelet/crush</a> for the documentation.</p>
+<p>Crush expands <code>$VAR</code> and <code>$(command)</code> in configuration values, so
+secrets can be read at startup instead of being written to the Nix
+store.</p>
+<p>Note, <code>"$schema": "https://charm.land/crush.json"</code> is automatically
+added to the configuration.</p>
+<p><em>Type:</em>
+JSON value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  models.large = {
+    model = "claude-sonnet-4-20250514";
+    provider = "anthropic";
+  };
+  providers.deepseek = {
+    type = "openai-compat";
+    base_url = "https://api.deepseek.com/v1";
+    api_key = "$(cat /run/secrets/deepseek-api-key)";
+    models = [
+      {
+        id = "deepseek-chat";
+        name = "Deepseek V3";
+      }
+    ];
+  };
+  lsp.nix.command = "nil";
+  options.disabled_tools = [ "sourcegraph" ];
+  permissions.allowed_tools = [ "view" ];
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.crush.skills"><a class="header" href="#opt-programs.crush.skills">programs.crush.skills</a></h2>
+<p>Agent Skills for Crush.</p>
+<p>This option can be either:</p>
+<ul>
+<li>An attribute set defining skills</li>
+<li>A path to a directory containing skill folders</li>
+</ul>
+<p>If an attribute set is used, the attribute name becomes the skill
+directory name, and the value is either:</p>
+<ul>
+<li>Inline content as a string (creates <code>crush/skills/&lt;name&gt;/SKILL.md</code>)</li>
+<li>A path to a file (creates <code>crush/skills/&lt;name&gt;/SKILL.md</code>)</li>
+<li>A path to a directory (creates <code>crush/skills/&lt;name&gt;/</code> with all files)</li>
+</ul>
+<p>This also accepts Nix store paths, for example a skill directory from
+a package.</p>
+<p>If a path is used, it is expected to contain one folder per skill name,
+each containing a <code>SKILL.md</code>. The directory is symlinked to
+<code>$XDG_CONFIG_HOME/crush/skills/</code>.</p>
+<p><em>Type:</em>
+(attribute set of (strings concatenated with “\n” or absolute path or string)) or absolute path</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  git-release = ''
+    ---
+    name: git-release
+    description: Create consistent releases and changelogs
+    ---
+
+    ## What I do
+
+    - Draft release notes from merged PRs
+    - Propose a version bump
+  '';
+
+  # A skill can also be a directory containing SKILL.md and other files.
+  data-analysis = ./skills/data-analysis;
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/crush.nix">&lt;home-manager/modules/programs/crush.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="cudatext"><a href="#cudatext" class="header">cudatext</a></h1>
@@ -22118,6 +22434,65 @@ JSON value</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/docker-cli.nix">&lt;home-manager/modules/programs/docker-cli.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="dprint"><a href="#dprint" class="header">dprint</a></h1>
+<h2 id="opt-programs.dprint.enable"><a class="header" href="#opt-programs.dprint.enable">programs.dprint.enable</a></h2>
+<p>Whether to enable dprint: a code formatter for common filetypes like markdown, toml, yaml,
+and many more. See https://dprint.dev/
+.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dprint.nix">&lt;home-manager/modules/programs/dprint.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.dprint.package"><a class="header" href="#opt-programs.dprint.package">programs.dprint.package</a></h2>
+<p>The dprint package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.dprint
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dprint.nix">&lt;home-manager/modules/programs/dprint.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.dprint.settings"><a class="header" href="#opt-programs.dprint.settings">programs.dprint.settings</a></h2>
+<p>Settings to add to <code>$XDG_CONFIG_HOME/dprint/dprint.json</code>.</p>
+<p><em>Type:</em>
+JSON value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  excludes = [
+    "**/node_modules"
+    "**/*-lock.json"
+  ];
+  plugins = [
+    "https://plugins.dprint.dev/typescript-0.96.1.wasm"
+    "${pkgs.dprint-plugins.g-plane-pretty_yaml}/plugin.wasm"
+  ];
+  json = { };
+  malva = { };
+  markdown = { };
+  toml = { };
+  typescript = { };
+  yaml = { };
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dprint.nix">&lt;home-manager/modules/programs/dprint.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="earthly"><a href="#earthly" class="header">earthly</a></h1>
 <h2 id="opt-programs.earthly.enable"><a class="header" href="#opt-programs.earthly.enable">programs.earthly.enable</a></h2>
 <p>Whether to enable earthly.</p>
@@ -23516,7 +23891,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.meta.teams">programs.firefox.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23531,7 +23906,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.firefox.profiles._name_.bookmarks.settings">programs.firefox.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -23906,7 +24281,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.meta.teams">programs.firefox.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -23921,7 +24296,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.firefox.profiles._name_.handlers.mimeTypes">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -24314,7 +24689,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.firefox.profiles._name_.search.meta.teams">programs.firefox.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -24329,7 +24704,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.search.order"><a class="header" href="#opt-programs.firefox.profiles._name_.search.order">programs.firefox.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -24394,17 +24769,19 @@ attribute set of (Firefox preference (int, bool, string, and also attrs, list, f
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox">&lt;home-manager/modules/programs/firefox&gt;</a></li>
 </ul>
 <h2 id="opt-programs.firefox.profiles._name_.storeId"><a class="header" href="#opt-programs.firefox.profiles._name_.storeId">programs.firefox.profiles.&lt;name&gt;.storeId</a></h2>
-<p>Store ID. Either null, or the first segment of a UUID string.</p>
-<p>If this value is set, then profile.ini is created
-with predictable StoreIDs.</p>
-<p>This is useful to keep the StoreID static,
-which helps to bridge the firefox profiles and the new
-firefox switchable profile implementations.</p>
-<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p>Store ID. Either null, or the first segment of a UUID string (8 lowercase hex characters).</p>
+<p>If this value is set, then profiles.ini is created with predictable StoreIDs.
+‘toolkit.profiles.storeID’ is also set accordingly.</p>
+<p>A predictable StoreID helps bridge the old and new firefox profile implementations.
+The StoreID is the name of the sqlite database in “Profile Groups” holding the new
+profiles’ metadata.</p>
 <p><em>Type:</em>
 null or string matching the pattern [0-9a-f]{8}</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"e41de5fe"
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -25204,6 +25581,63 @@ strings concatenated with “\n”</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix">&lt;home-manager/modules/programs/fish.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="flake-edit"><a href="#flake-edit" class="header">flake-edit</a></h1>
+<h2 id="opt-programs.flake-edit.enable"><a class="header" href="#opt-programs.flake-edit.enable">programs.flake-edit.enable</a></h2>
+<p>Whether to enable flake-edit.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flake-edit.nix">&lt;home-manager/modules/programs/flake-edit.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.flake-edit.package"><a class="header" href="#opt-programs.flake-edit.package">programs.flake-edit.package</a></h2>
+<p>The flake-edit package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.flake-edit
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flake-edit.nix">&lt;home-manager/modules/programs/flake-edit.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.flake-edit.settings"><a class="header" href="#opt-programs.flake-edit.settings">programs.flake-edit.settings</a></h2>
+<p>Configuration written to <code>$XDG_CONFIG_HOME/flake-edit/config.toml</code> on Linux or
+<code>$HOME/Library/Application Support/flake-edit/config.toml</code> on Darwin.
+See <a href="https://github.com/a-kenji/flake-edit#configuration">https://github.com/a-kenji/flake-edit#configuration</a> for documentation.</p>
+<p><em>Type:</em>
+TOML value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  follow = {
+    aliases = {
+      nixpkgs = [
+        "nixpkgs-lib"
+      ];
+    };
+    ignore = [
+      "systems"
+      "crane.flake-utils"
+    ];
+    max_depth = 1;
+    transitive_min = 2;
+  };
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flake-edit.nix">&lt;home-manager/modules/programs/flake-edit.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="flashspace"><a href="#flashspace" class="header">flashspace</a></h1>
 <h2 id="opt-programs.flashspace.enable"><a class="header" href="#opt-programs.flashspace.enable">programs.flashspace.enable</a></h2>
 <p>Whether to enable FlashSpace workspace manager for macOS.</p>
@@ -25568,7 +26002,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.meta.teams">programs.floorp.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25583,7 +26017,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.floorp.profiles._name_.bookmarks.settings">programs.floorp.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -25958,7 +26392,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.meta.teams">programs.floorp.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -25973,7 +26407,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.floorp.profiles._name_.handlers.mimeTypes">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -26366,7 +26800,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.floorp.profiles._name_.search.meta.teams">programs.floorp.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -26381,7 +26815,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.search.order"><a class="header" href="#opt-programs.floorp.profiles._name_.search.order">programs.floorp.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -26446,17 +26880,19 @@ attribute set of (Floorp preference (int, bool, string, and also attrs, list, fl
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix">&lt;home-manager/modules/programs/floorp.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.floorp.profiles._name_.storeId"><a class="header" href="#opt-programs.floorp.profiles._name_.storeId">programs.floorp.profiles.&lt;name&gt;.storeId</a></h2>
-<p>Store ID. Either null, or the first segment of a UUID string.</p>
-<p>If this value is set, then profile.ini is created
-with predictable StoreIDs.</p>
-<p>This is useful to keep the StoreID static,
-which helps to bridge the firefox profiles and the new
-firefox switchable profile implementations.</p>
-<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p>Store ID. Either null, or the first segment of a UUID string (8 lowercase hex characters).</p>
+<p>If this value is set, then profiles.ini is created with predictable StoreIDs.
+‘toolkit.profiles.storeID’ is also set accordingly.</p>
+<p>A predictable StoreID helps bridge the old and new firefox profile implementations.
+The StoreID is the name of the sqlite database in “Profile Groups” holding the new
+profiles’ metadata.</p>
 <p><em>Type:</em>
 null or string matching the pattern [0-9a-f]{8}</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"e41de5fe"
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -31763,6 +32199,56 @@ null or string</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprshot.nix">&lt;home-manager/modules/programs/hyprshot.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="hyprtoolkit"><a href="#hyprtoolkit" class="header">hyprtoolkit</a></h1>
+<h2 id="opt-programs.hyprtoolkit.enable"><a class="header" href="#opt-programs.hyprtoolkit.enable">programs.hyprtoolkit.enable</a></h2>
+<p>Whether to enable A GUI toolkit for developing applications that run natively on Wayland.
+It’s specifically made for Hyprland’s needs, but will generally run on
+any Wayland compositor that supports modern standards.
+.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprtoolkit.nix">&lt;home-manager/modules/programs/hyprtoolkit.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.hyprtoolkit.package"><a class="header" href="#opt-programs.hyprtoolkit.package">programs.hyprtoolkit.package</a></h2>
+<p>The hyprtoolkit package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.hyprtoolkit
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprtoolkit.nix">&lt;home-manager/modules/programs/hyprtoolkit.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.hyprtoolkit.settings"><a class="header" href="#opt-programs.hyprtoolkit.settings">programs.hyprtoolkit.settings</a></h2>
+<p>The configuration written to <code>$XDG_CONFIG_HOME/hypr/hyprtoolkit.conf</code>.
+More options can be found here: <a href="https://wiki.hypr.land/Hypr-Ecosystem/hyprtoolkit/">https://wiki.hypr.land/Hypr-Ecosystem/hyprtoolkit/</a></p>
+<p><em>Type:</em>
+Hyprtoolkit configuration values</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  background = "0xFF181818";
+  base = "0xFF202020";
+  h1_size = 19;
+  h2_size = 15;
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/hyprtoolkit.nix">&lt;home-manager/modules/programs/hyprtoolkit.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="i3bar-river"><a href="#i3bar-river" class="header">i3bar-river</a></h1>
@@ -37141,7 +37627,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.meta.teams">programs.librewolf.profiles.&lt;name&gt;.bookmarks.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37156,7 +37642,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.bookmarks.settings"><a class="header" href="#opt-programs.librewolf.profiles._name_.bookmarks.settings">programs.librewolf.profiles.&lt;name&gt;.bookmarks.settings</a></h2>
 <p>Custom bookmarks.</p>
@@ -37531,7 +38017,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.meta.teams">programs.librewolf.profiles.&lt;name&gt;.handlers.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37546,7 +38032,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes"><a class="header" href="#opt-programs.librewolf.profiles._name_.handlers.mimeTypes">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes</a></h2>
 <p>Attribute set mapping MIME types to their handler configurations.</p>
@@ -37939,7 +38425,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.meta.teams">programs.librewolf.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -37954,7 +38440,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.search.order"><a class="header" href="#opt-programs.librewolf.profiles._name_.search.order">programs.librewolf.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -38019,17 +38505,19 @@ attribute set of (LibreWolf preference (int, bool, string, and also attrs, list,
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix">&lt;home-manager/modules/programs/librewolf.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.librewolf.profiles._name_.storeId"><a class="header" href="#opt-programs.librewolf.profiles._name_.storeId">programs.librewolf.profiles.&lt;name&gt;.storeId</a></h2>
-<p>Store ID. Either null, or the first segment of a UUID string.</p>
-<p>If this value is set, then profile.ini is created
-with predictable StoreIDs.</p>
-<p>This is useful to keep the StoreID static,
-which helps to bridge the firefox profiles and the new
-firefox switchable profile implementations.</p>
-<p>This should be set to a string of 8 lowercase hex characters.</p>
+<p>Store ID. Either null, or the first segment of a UUID string (8 lowercase hex characters).</p>
+<p>If this value is set, then profiles.ini is created with predictable StoreIDs.
+‘toolkit.profiles.storeID’ is also set accordingly.</p>
+<p>A predictable StoreID helps bridge the old and new firefox profile implementations.
+The StoreID is the name of the sqlite database in “Profile Groups” holding the new
+profiles’ metadata.</p>
 <p><em>Type:</em>
 null or string matching the pattern [0-9a-f]{8}</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"e41de5fe"
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -39510,7 +39998,7 @@ boolean</p>
 <p><em>Type:</em>
 null or package</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">if pkgs.stdenv.isDarwin &amp;&amp; lib.versionAtLeast config.home.stateVersion "26.05" then
+<pre><code class="language-nix">if pkgs.stdenv.hostPlatform.isDarwin &amp;&amp; lib.versionAtLeast config.home.stateVersion "26.05" then
   null
 else if cfg.man-db.enable then
   pkgs.man
@@ -39720,6 +40208,69 @@ strings concatenated with “\n”</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/matplotlib.nix">&lt;home-manager/modules/programs/matplotlib.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="mblaze"><a href="#mblaze" class="header">mblaze</a></h1>
+<h2 id="opt-programs.mblaze.enable"><a class="header" href="#opt-programs.mblaze.enable">programs.mblaze.enable</a></h2>
+<p>Whether to enable mblaze, unix utilities to deal with Maildir.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
+</ul>
+<h2 id="opt-programs.mblaze.package"><a class="header" href="#opt-programs.mblaze.package">programs.mblaze.package</a></h2>
+<p>The mblaze package to use.</p>
+<p><em>Type:</em>
+package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.mblaze
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
+</ul>
+<h2 id="opt-programs.mblaze.editor"><a class="header" href="#opt-programs.mblaze.editor">programs.mblaze.editor</a></h2>
+<p>Editor <code>mcom(1)</code> opens drafts with, written to the
+<code>Editor:</code> entry of every generated profile. When left null
+mblaze falls back to <code>MBLAZE_EDITOR</code>, then <code>VISUAL</code>,
+then <code>EDITOR</code>.</p>
+<p><em>Type:</em>
+null or string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">"nvim"
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
+</ul>
+<h2 id="opt-programs.mblaze.settings"><a class="header" href="#opt-programs.mblaze.settings">programs.mblaze.settings</a></h2>
+<p>Entries added to every generated profile, as documented in
+<code>mblaze-profile(5)</code>. An entry defined here overrides
+the generated one of the same name, and is in turn overridden
+by <a href="#opt-accounts.email.accounts._name_.mblaze.settings"></a>.</p>
+<p><em>Type:</em>
+attribute set of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  Scan-Format = "%c%u%r %-3n %10d %17f %t %2i%s";
+}
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mblaze">&lt;home-manager/modules/programs/mblaze&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="mbsync"><a href="#mbsync" class="header">mbsync</a></h1>
@@ -40567,6 +41118,36 @@ boolean</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix">&lt;home-manager/modules/programs/mise.nix&gt;</a></li>
 </ul>
+<h2 id="opt-programs.mise.enableMutableConfig"><a class="header" href="#opt-programs.mise.enableMutableConfig">programs.mise.enableMutableConfig</a></h2>
+<p>Whether to leave <code>$XDG_CONFIG_HOME/mise/config.toml</code> mutable
+so it can be updated by commands such as <code>mise use --global</code>.</p>
+<p>When enabled, <code>programs.mise.globalConfig</code> is written to
+<code>$XDG_CONFIG_HOME/mise/conf.d/50-home-manager.toml</code> instead,
+leaving the main configuration file unmanaged. The numeric prefix
+gives user-managed fragments predictable ordering around the Home
+Manager fragment. An empty mutable configuration file is created
+because global Mise commands otherwise try to update an existing
+global fragment, including the read-only Home Manager fragment.</p>
+<p>Keep settings in the mutable file and
+<code>programs.mise.globalConfig</code> disjoint. Mise may resolve
+conflicts between the global file and <code>conf.d</code> differently
+depending on the current directory.</p>
+<p>Before disabling this option while
+<code>programs.mise.globalConfig</code> is non-empty, remove or back up
+the mutable configuration file. Home Manager otherwise treats it as a
+file collision.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix">&lt;home-manager/modules/programs/mise.nix&gt;</a></li>
+</ul>
 <h2 id="opt-programs.mise.enableNushellIntegration"><a class="header" href="#opt-programs.mise.enableNushellIntegration">programs.mise.enableNushellIntegration</a></h2>
 <p>Whether to enable Nushell integration.</p>
 <p><em>Type:</em>
@@ -40605,7 +41186,10 @@ null or package</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mise.nix">&lt;home-manager/modules/programs/mise.nix&gt;</a></li>
 </ul>
 <h2 id="opt-programs.mise.globalConfig"><a class="header" href="#opt-programs.mise.globalConfig">programs.mise.globalConfig</a></h2>
-<p>Config written to <code>$XDG_CONFIG_HOME/mise/config.toml</code>.</p>
+<p>Global configuration written to
+<code>$XDG_CONFIG_HOME/mise/config.toml</code>, or
+<code>$XDG_CONFIG_HOME/mise/conf.d/50-home-manager.toml</code> when
+<code>programs.mise.enableMutableConfig</code> is enabled.</p>
 <p>See <a href="https://mise.jdx.dev/configuration.html">https://mise.jdx.dev/configuration.html</a> and
 <a href="https://mise.jdx.dev/configuration/settings.html">https://mise.jdx.dev/configuration/settings.html</a>
 for details on supported values.</p>
@@ -42574,7 +43158,7 @@ boolean</p>
 <p><em>Type:</em>
 boolean</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">pkgs.stdenv.isLinux
+<pre><code class="language-nix">pkgs.stdenv.hostPlatform.isLinux
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -43972,7 +44556,7 @@ null or package</p>
 <p><em>Type:</em>
 string or absolute path</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">if pkgs.stdenv.isDarwin &amp;&amp; !config.xdg.enable then
+<pre><code class="language-nix">if pkgs.stdenv.hostPlatform.isDarwin &amp;&amp; !config.xdg.enable then
   "Library/Application Support/nushell"
 else
   "${config.xdg.configHome}/nushell";
@@ -55996,7 +56580,7 @@ list of lib.maintainers</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.meta.teams"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.meta.teams">programs.thunderbird.profiles.&lt;name&gt;.search.meta.teams</a></h2>
 <p>List of team maintainers of each module.
@@ -56011,7 +56595,7 @@ list of lib.teams</p>
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
-<li><a href="file:///nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix">/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source/modules/generic/meta-maintainers.nix</a></li>
+<li><a href="file:///nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix">/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/modules/generic/meta-maintainers.nix</a></li>
 </ul>
 <h2 id="opt-programs.thunderbird.profiles._name_.search.order"><a class="header" href="#opt-programs.thunderbird.profiles._name_.search.order">programs.thunderbird.profiles.&lt;name&gt;.search.order</a></h2>
 <p>The order the search engines are listed in. Any engines that
@@ -60767,6 +61351,56 @@ absolute path or JSON value</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/windsurf.nix">&lt;home-manager/modules/programs/windsurf.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="wiremix"><a href="#wiremix" class="header">wiremix</a></h1>
+<h2 id="opt-programs.wiremix.enable"><a class="header" href="#opt-programs.wiremix.enable">programs.wiremix.enable</a></h2>
+<p>Whether to enable wiremix.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wiremix.nix">&lt;home-manager/modules/programs/wiremix.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.wiremix.package"><a class="header" href="#opt-programs.wiremix.package">programs.wiremix.package</a></h2>
+<p>The wiremix package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.wiremix
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wiremix.nix">&lt;home-manager/modules/programs/wiremix.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.wiremix.settings"><a class="header" href="#opt-programs.wiremix.settings">programs.wiremix.settings</a></h2>
+<p>Configuration written to
+<code>$XDG_CONFIG_HOME/wiremix/wiremix.toml</code></p>
+<p>See <a href="https://github.com/tsowell/wiremix#configuration">https://github.com/tsowell/wiremix#configuration</a> for more
+information.</p>
+<p><em>Type:</em>
+TOML value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  mouse = false;
+  peaks = "auto";
+  theme = "default";
+  max_volume_percent = 100.0;
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wiremix.nix">&lt;home-manager/modules/programs/wiremix.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="wleave"><a href="#wleave" class="header">wleave</a></h1>
 <h2 id="opt-programs.wleave.enable"><a class="header" href="#opt-programs.wleave.enable">programs.wleave.enable</a></h2>
 <p>Whether to enable wleave.</p>
@@ -61043,6 +61677,111 @@ null or absolute path or strings concatenated with “\n”</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wlogout.nix">&lt;home-manager/modules/programs/wlogout.nix&gt;</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="wlr-which-key"><a href="#wlr-which-key" class="header">wlr-which-key</a></h1>
+<h2 id="opt-programs.wlr-which-key.enable"><a class="header" href="#opt-programs.wlr-which-key.enable">programs.wlr-which-key.enable</a></h2>
+<p>Whether to enable wlr-which-key, a keymap manager for wlroots-based compositors.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wlr-which-key.nix">&lt;home-manager/modules/programs/wlr-which-key.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.wlr-which-key.package"><a class="header" href="#opt-programs.wlr-which-key.package">programs.wlr-which-key.package</a></h2>
+<p>The wlr-which-key package to use.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.wlr-which-key
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wlr-which-key.nix">&lt;home-manager/modules/programs/wlr-which-key.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.wlr-which-key.extraMenus"><a class="header" href="#opt-programs.wlr-which-key.extraMenus">programs.wlr-which-key.extraMenus</a></h2>
+<p>Additional named menu configurations, each written to
+<code>$XDG_CONFIG_HOME/wlr-which-key/&lt;name&gt;.yaml</code>.
+These can be launched with <code>wlr-which-key &lt;name&gt;.yaml</code>.</p>
+<p><em>Type:</em>
+attribute set of (YAML 1.1 value)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  apps = {
+    anchor = "bottom-left";
+    menu = [
+      { key = "f"; desc = "Firefox"; cmd = "firefox"; }
+      { key = "v"; desc = "Vesktop"; cmd = "vesktop"; }
+      { key = "q"; desc = "Qutebrowser"; cmd = "qutebrowser"; }
+    ];
+  };
+  power = {
+    menu = [
+      { key = "s"; desc = "Sleep"; cmd = "systemctl suspend"; }
+      { key = "r"; desc = "Reboot"; cmd = "reboot"; }
+      { key = "o"; desc = "Off"; cmd = "poweroff"; }
+    ];
+  };
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wlr-which-key.nix">&lt;home-manager/modules/programs/wlr-which-key.nix&gt;</a></li>
+</ul>
+<h2 id="opt-programs.wlr-which-key.settings"><a class="header" href="#opt-programs.wlr-which-key.settings">programs.wlr-which-key.settings</a></h2>
+<p>Main wlr-which-key configuration written to
+<code>$XDG_CONFIG_HOME/wlr-which-key/config.yaml</code>.</p>
+<p>See <a href="https://github.com/MaxVerevkin/wlr-which-key#configuration">https://github.com/MaxVerevkin/wlr-which-key#configuration</a>
+for the full list of options.</p>
+<p><em>Type:</em>
+YAML 1.1 value</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  font = "JetBrainsMono Nerd Font 12";
+  background = "#282828d0";
+  color = "#fbf1c7";
+  border = "#8ec07c";
+  separator = " ➜ ";
+  border_width = 2;
+  corner_r = 10;
+  padding = 15;
+  rows_per_column = 5;
+  column_padding = 25;
+  anchor = "center";
+  margin_right = 0;
+  margin_bottom = 0;
+  margin_left = 0;
+  margin_top = 0;
+  menu = [
+    {
+      key = "p";
+      desc = "Power";
+      submenu = [
+        { key = "s"; desc = "Sleep"; cmd = "systemctl suspend"; }
+        { key = "r"; desc = "Reboot"; cmd = "reboot"; }
+        { key = "o"; desc = "Off"; cmd = "poweroff"; }
+      ];
+    }
+  ];
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wlr-which-key.nix">&lt;home-manager/modules/programs/wlr-which-key.nix&gt;</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="wofi"><a href="#wofi" class="header">wofi</a></h1>
@@ -63512,9 +64251,9 @@ strings concatenated with “\n”</p>
 <pre><code class="language-nix">""
 </code></pre>
 <p><em>Example:</em></p>
-<pre><code class="language-nix">lib.mkOrder 1200 '''
+<pre><code class="language-nix">lib.mkOrder 1200 ''
   echo "Hello zsh initContent!"
-''';
+'';
 
 </code></pre>
 <p><em>Declared by:</em></p>
@@ -67638,8 +68377,8 @@ package</p>
 </ul>
 <h2 id="opt-services.easyeffects.extraPresets"><a class="header" href="#opt-services.easyeffects.extraPresets">services.easyeffects.extraPresets</a></h2>
 <p>List of presets to import to easyeffects.
-Presets are written to input and output folder in <code>$XDG_DATA_HOME/easyeffects</code>.
-Top level block (input/output) determines the folder the file is written to.</p>
+Presets are written to input and output folders in <code>$XDG_DATA_HOME/easyeffects</code>.
+Each top-level block (<code>input</code> or <code>output</code>) is written to its corresponding folder.</p>
 <p>See community presets at:
 https://github.com/wwmm/easyeffects/wiki/Community-Presets</p>
 <p><em>Type:</em>
@@ -67668,6 +68407,14 @@ null or (attribute set of attribute set of (JSON value))</p>
         wet = 0.0;
       };
     };
+    output = {
+      blocklist = [ ];
+      "plugins_order" = [ "limiter#0" ];
+      "limiter#0" = {
+        bypass = false;
+        threshold = -1.0;
+      };
+    };
   };
 };
 
@@ -67677,12 +68424,60 @@ null or (attribute set of attribute set of (JSON value))</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/easyeffects.nix">&lt;home-manager/modules/services/easyeffects.nix&gt;</a></li>
 </ul>
 <h2 id="opt-services.easyeffects.preset"><a class="header" href="#opt-services.easyeffects.preset">services.easyeffects.preset</a></h2>
-<p>Which preset to use when starting easyeffects.
-Will likely need to launch easyeffects to initially create preset.</p>
+<p>Preset to load when starting EasyEffects.</p>
+<p>A string loads every input or output preset having that name. An
+attribute set selects input and output presets independently and
+requires EasyEffects 8.0.9 or later. An empty string leaves that
+pipeline unchanged.</p>
+<p>You will likely need to launch EasyEffects to initially create presets.</p>
+<p><em>Type:</em>
+string or (submodule)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  input = "voice";
+  output = "music";
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/easyeffects.nix">&lt;home-manager/modules/services/easyeffects.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.easyeffects.preset.input"><a class="header" href="#opt-services.easyeffects.preset.input">services.easyeffects.preset.input</a></h2>
+<p>Input preset to load when starting EasyEffects.</p>
 <p><em>Type:</em>
 string</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">""
+</code></pre>
+<h2 id="opt-services.easyeffects.preset.output"><a class="header" href="#opt-services.easyeffects.preset.output">services.easyeffects.preset.output</a></h2>
+<p>Output preset to load when starting EasyEffects.</p>
+<p><em>Type:</em>
+string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<h2 id="opt-services.easyeffects.settings"><a class="header" href="#opt-services.easyeffects.settings">services.easyeffects.settings</a></h2>
+<p>Global EasyEffects settings written to its mutable KConfig database.
+Settings are grouped by KConfig section. A value of <code>null</code> deletes the
+corresponding key. This option requires EasyEffects 8.0.0 or later.</p>
+<p><em>Type:</em>
+attribute set of attribute set of (null or boolean or signed integer or floating point number or string or absolute path)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  StreamInputs = {
+    inputDevice = "alsa_input.usb-example";
+    listenToMic = false;
+  };
+  StreamOutputs.useDefaultOutputDevice = true;
+}
+
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -71457,7 +72252,8 @@ boolean</p>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/lorri.nix">&lt;home-manager/modules/services/lorri.nix&gt;</a></li>
 </ul>
 <h2 id="opt-services.lorri.enableNotifications"><a class="header" href="#opt-services.lorri.enableNotifications">services.lorri.enableNotifications</a></h2>
-<p>Whether to enable lorri build notifications.</p>
+<p>Whether to enable lorri build notifications.
+Note, this is unsupported on Darwin.</p>
 <p><em>Type:</em>
 boolean</p>
 <p><em>Default:</em></p>
@@ -71476,6 +72272,17 @@ boolean</p>
 package</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">pkgs.lorri
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/lorri.nix">&lt;home-manager/modules/services/lorri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-services.lorri.extraEnvVariables"><a class="header" href="#opt-services.lorri.extraEnvVariables">services.lorri.extraEnvVariables</a></h2>
+<p>Extra environment variables to pass to the daemon.</p>
+<p><em>Type:</em>
+attribute set of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
 </code></pre>
 <p><em>Declared by:</em></p>
 <ul>
@@ -73074,9 +73881,12 @@ if rocm doesn’t detect your AMD gpu</li>
 <li>
 <p><code>"cuda"</code>: supported by most modern NVIDIA GPUs</p>
 </li>
+<li>
+<p><code>"vulkan"</code>: supported by most GPUs</p>
+</li>
 </ul>
 <p><em>Type:</em>
-null or one of false, “rocm”, “cuda”</p>
+null or one of false, “rocm”, “cuda”, “vulkan”</p>
 <p><em>Default:</em></p>
 <pre><code class="language-nix">null
 </code></pre>
@@ -82636,7 +83446,7 @@ string</p>
 <p><em>Type:</em>
 boolean</p>
 <p><em>Default:</em></p>
-<pre><code class="language-nix">pkgs.stdenv.isLinux
+<pre><code class="language-nix">pkgs.stdenv.hostPlatform.isLinux
 </code></pre>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">true
@@ -84578,6 +85388,19 @@ null or (list of string)</p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vdirsyncer/accounts.nix">&lt;home-manager/modules/programs/vdirsyncer/accounts.nix&gt;</a></li>
 </ul>
+<h2 id="opt-vdirsyncer.localReadOnly"><a class="header" href="#opt-vdirsyncer.localReadOnly">vdirsyncer.localReadOnly</a></h2>
+<p>Whether vdirsyncer should treat the local storage as read-only.</p>
+<p>Changes that cannot be written to the local storage are handled
+according to the value of the <code>partialSync</code> option.</p>
+<p><em>Type:</em>
+null or boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">null
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vdirsyncer/accounts.nix">&lt;home-manager/modules/programs/vdirsyncer/accounts.nix&gt;</a></li>
+</ul>
 <h2 id="opt-vdirsyncer.metadata"><a class="header" href="#opt-vdirsyncer.metadata">vdirsyncer.metadata</a></h2>
 <p>Metadata keys that should be synchronized when vdirsyncer
 metasync is executed.</p>
@@ -85529,6 +86352,180 @@ boolean</p>
 <p><em>Declared by:</em></p>
 <ul>
 <li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/labwc">&lt;home-manager/modules/services/window-managers/labwc&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.enable"><a class="header" href="#opt-wayland.windowManager.niri.enable">wayland.windowManager.niri.enable</a></h2>
+<p>Whether to enable niri.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">false
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.package"><a class="header" href="#opt-wayland.windowManager.niri.package">wayland.windowManager.niri.package</a></h2>
+<p>The niri package to use. Set to <code>null</code> to not add any niri package to your path.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.niri
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.checkConfig"><a class="header" href="#opt-wayland.windowManager.niri.checkConfig">wayland.windowManager.niri.checkConfig</a></h2>
+<p>If enabled and package is not null, validates the generated config file.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">wayland.windowManager.niri.package != null
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.extraConfig"><a class="header" href="#opt-wayland.windowManager.niri.extraConfig">wayland.windowManager.niri.extraConfig</a></h2>
+<p>Extra configuration lines added to <code>$XDG_CONFIG_HOME/niri/config.kdl</code> after the config generated from the options.</p>
+<p><em>Type:</em>
+strings concatenated with “\n”</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.extraConfigEarly"><a class="header" href="#opt-wayland.windowManager.niri.extraConfigEarly">wayland.windowManager.niri.extraConfigEarly</a></h2>
+<p>Extra configuration lines added to <code>$XDG_CONFIG_HOME/niri/config.kdl</code> before config generated from the options.</p>
+<p><em>Type:</em>
+strings concatenated with “\n”</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">""
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.portalPackage"><a class="header" href="#opt-wayland.windowManager.niri.portalPackage">wayland.windowManager.niri.portalPackage</a></h2>
+<p>The xdg-desktop-portal-gnome package to use. The portal implementation to use with niri. Niri ships a portal
+configuration that prefers <code>gnome</code> and <code>gtk</code> portals.
+Set to <code>null</code> to not install any portal package.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.xdg-desktop-portal-gnome
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.settings"><a class="header" href="#opt-wayland.windowManager.niri.settings">wayland.windowManager.niri.settings</a></h2>
+<p>Configuration added to <code>$XDG_CONFIG_HOME/niri/config.kdl</code>.
+See <a href="https://yalter.github.io/niri/Configuration%3A-Introduction.html">https://yalter.github.io/niri/Configuration%3A-Introduction.html</a> for the full list of options.</p>
+<p><em>Type:</em>
+attribute set of (KDL value)</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">{ }
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">{
+  # str/num/bool → single argument
+  screenshot-path = "~/Screenshots/%Y-%m-%d %H-%M-%S.png";
+  layout.gaps = 8;
+  layout.shadow.draw-behind-window = true;
+
+  # {} → leaf node
+  prefer-no-csd = {};
+  input.touchpad.tap = {};
+
+  # _props → named properties: offset x=0 y=5
+  layout.shadow.offset._props = { x = 0; y = 5; };
+
+  # _children → ordered/repeated children
+  layout.preset-column-widths._children = [
+    { proportion = 0.33333; }
+    { proportion = 0.5; }
+  ];
+
+  # _props + list args in binds
+  binds = {
+    "Mod+H".focus-column-left = {};
+    "Mod+Return" = {
+      _props.hotkey-overlay-title = "Open a Terminal";
+      spawn = ["ghostty"];
+    };
+    "XF86AudioRaiseVolume" = {
+      _props.allow-when-locked = true;
+      spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"];
+    };
+  };
+
+  # _args for repeated/parameterized top-level nodes
+  _children = [
+    { workspace._args = ["chat"]; }
+    { workspace._args = ["dev"]; }
+    # _args + children
+    { output = { _args = ["eDP-1"]; scale = 2.0; }; }
+    # nested _children + _props
+    {
+      window-rule._children = [
+        { match._props = { app-id = "firefox"; at-startup = true; }; }
+        { open-on-workspace = "dev"; }
+      ];
+    }
+  ];
+}
+
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.systemd.enable"><a class="header" href="#opt-wayland.windowManager.niri.systemd.enable">wayland.windowManager.niri.systemd.enable</a></h2>
+<p>Whether to install niri’s systemd units from the <code>package</code>,
+that are used by <code>niri-session</code>.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Example:</em></p>
+<pre><code class="language-nix">true
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.systemd.variables"><a class="header" href="#opt-wayland.windowManager.niri.systemd.variables">wayland.windowManager.niri.systemd.variables</a></h2>
+<p>Environment variables to be imported in the systemd &amp; D-Bus user
+environment. Not used by niri, as <code>niri-session</code> already
+imports all environment variables.</p>
+<p><em>Type:</em>
+list of string</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">[ ]
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
+</ul>
+<h2 id="opt-wayland.windowManager.niri.xwaylandSatellitePackage"><a class="header" href="#opt-wayland.windowManager.niri.xwaylandSatellitePackage">wayland.windowManager.niri.xwaylandSatellitePackage</a></h2>
+<p>The xwayland-satellite package to use. With <code>xwayland-satellite</code> in the <code>$PATH</code>, niri can automatically
+start XWayland when needed. Set to <code>null</code> if you want to disable xwayland.
+See <a href="https://yalter.github.io/niri/Xwayland.html">https://yalter.github.io/niri/Xwayland.html</a>.</p>
+<p><em>Type:</em>
+null or package</p>
+<p><em>Default:</em></p>
+<pre><code class="language-nix">pkgs.xwayland-satellite
+</code></pre>
+<p><em>Declared by:</em></p>
+<ul>
+<li><a href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/niri.nix">&lt;home-manager/modules/services/window-managers/niri.nix&gt;</a></li>
 </ul>
 <h2 id="opt-wayland.windowManager.river.enable"><a class="header" href="#opt-wayland.windowManager.river.enable">wayland.windowManager.river.enable</a></h2>
 <p>Whether to enable the river window manager.</p>
@@ -88495,7 +89492,7 @@ list of package</p>
 </code></pre>
 <p><em>Example:</em></p>
 <pre><code class="language-nix">[
-  &lt;derivation eog-50.1&gt;
+  &lt;derivation eog-50.2&gt;
   &lt;derivation evince-48.4&gt;
 ]
 </code></pre>
@@ -91943,7 +92940,7 @@ section is therefore not final.</p>
 <p>This release has the following notable changes:</p>
 <ul>
 <li>
-<p>The <a href="#opt-programs.uv.enable">programs.uv.enable</a> module can now install uv-managed Python
+<p>The <a href="#uv">programs.uv</a> module can now install uv-managed Python
 versions and tools through the new <code>programs.uv.python.versions</code>,
 <code>programs.uv.python.default</code>, and <code>programs.uv.tool.packages</code> options. Unpinned
 entries track the latest release on each activation while pinned ones stay put,
@@ -91964,10 +92961,23 @@ session.</p>
 changes are only active if the <code>home.stateVersion</code> option is set to
 “26.11” or later.</p>
 <ul>
-<li>The KDL options under <code>programs.zellij</code> will now correctly escape backslashes
+<li>
+<p>The KDL options under <code>programs.zellij</code> will now correctly escape backslashes
 in string values. For example, the Nix string <code>"\\"</code> will now correctly
 generate the KDL string <code>"\\"</code>. Previously, this would have generated <code>"\"</code>,
-which is invalid KDL. The following options are affected:
+which is invalid KDL. The following options are affected:</p>
+<ul>
+<li><code>programs.zellij.settings</code></li>
+<li><code>programs.zellij.themes</code></li>
+<li><code>programs.zellij.layouts</code></li>
+</ul>
+</li>
+<li>
+<p>The KDL options under <code>programs.zellij</code> will now escape tabs in string
+values. For example, the Nix string <code>"\t"</code> (corresponding to a single tab)
+will now generate the KDL string <code>"\t"</code>. Previously, this would have generated
+<code>"&lt;tab&gt;"</code> (where <code>&lt;tab&gt;</code> denotes a literal tab character). The following
+options are affected:</p>
 <ul>
 <li><code>programs.zellij.settings</code></li>
 <li><code>programs.zellij.themes</code></li>
@@ -91998,7 +93008,7 @@ systems where home directories are mounted later (for example, pam_mount).</p>
 machine management on Darwin.</p>
 </li>
 <li>
-<p>The <a href="#opt-programs.rclone.enable">programs.rclone.enable</a> module now supports launchd-backed config,
+<p>The <a href="#rclone">programs.rclone</a> module now supports launchd-backed config,
 mount, and serve agents on Darwin. The new
 <code>programs.rclone.remotes.&lt;name&gt;.serve</code> option can manage <code>rclone serve</code>
 sidecar services on both Linux and Darwin. On non-systemd platforms,
